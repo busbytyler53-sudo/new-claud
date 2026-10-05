@@ -534,6 +534,17 @@
 
     .detail a { color: var(--white); font-weight: 700; }
 
+    .hours {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 6px 20px;
+      margin: 0;
+    }
+
+    .hours dt { font-weight: 600; }
+
+    .hours dd { margin: 0; font-weight: 700; text-align: right; white-space: nowrap; }
+
     .visit .btn-primary { background: var(--sun); color: var(--ink); }
     .visit .btn-primary:hover { background: #e9a72a; }
 
@@ -842,8 +853,11 @@
             </div>
             <div class="detail">
               <span>Opening hours</span>
-              <!-- TODO: add the full opening hours for each day -->
-              We close at 5pm. Give us a ring to check today's hours.
+              <dl class="hours">
+                <dt>Monday to Friday</dt><dd>9:30am – 5pm</dd>
+                <dt>Saturday</dt><dd>9:30am – 3pm</dd>
+                <dt>Sunday</dt><dd>Closed</dd>
+              </dl>
             </div>
             <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&amp;query=Birstall+Pet+Supplies+87+Sibson+Rd+Birstall+Leicester+LE4+4NB" target="_blank" rel="noopener">Get directions</a>
           </div>

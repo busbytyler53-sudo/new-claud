@@ -1,0 +1,22 @@
+# Runs a Lighthouse audit (speed, accessibility, best practices, SEO)
+# on the Birstall Pet Supplies website every time it changes.
+name: Website audit
+
+on:
+  push:
+    paths:
+      - "birstall-pet-supplies/**"
+      - ".github/workflows/website-audit.yml"
+  workflow_dispatch:
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Audit the website with Lighthouse
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          configPath: ./birstall-pet-supplies/lighthouserc.json
+          uploadArtifacts: true

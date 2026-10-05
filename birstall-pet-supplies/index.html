@@ -4,7 +4,57 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Birstall Pet Supplies | Your friendly local pet shop in Birstall</title>
-  <meta name="description" content="Birstall Pet Supplies on Sibson Road, Birstall. Pet food, treats and everyday essentials, with friendly advice and food you can pre-order for collection or delivery.">
+  <meta name="description" content="Birstall Pet Supplies, 87 Sibson Road, Birstall, Leicester. Pet food, Prime Raw raw dog food from £20 a box, natural chews and bird seed. Pre-order for collection or delivery. Open Mon to Sat.">
+  <meta name="theme-color" content="#1f6f5c">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Birstall Pet Supplies">
+  <meta property="og:title" content="Birstall Pet Supplies | Your friendly local pet shop in Birstall">
+  <meta property="og:description" content="Pet food, Prime Raw raw dog food, natural chews and bird seed on Sibson Road, Birstall. Open Monday to Saturday.">
+  <meta property="og:image" content="images/shop.jpg">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231f6f5c'/%3E%3Cg fill='%23fbf8f2'%3E%3Cellipse cx='16' cy='28' rx='5' ry='6.5'/%3E%3Cellipse cx='26' cy='18' rx='5' ry='7'/%3E%3Cellipse cx='38' cy='18' rx='5' ry='7'/%3E%3Cellipse cx='48' cy='28' rx='5' ry='6.5'/%3E%3Cpath d='M32 32c-7 0-14 9-14 15 0 5 4 6 8 5 2-1 4-1 6-1s4 0 6 1c4 1 8 0 8-5 0-6-7-15-14-15z'/%3E%3C/g%3E%3C/svg%3E">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "PetStore",
+  "name": "Birstall Pet Supplies",
+  "description": "Friendly local pet shop in Birstall, Leicester. Pet food, Prime Raw raw dog food, natural chews and treats, and bird seed, with food you can pre-order for collection or delivery.",
+  "image": "images/shop.jpg",
+  "telephone": "+44 116 267 1681",
+  "email": "contact@birstallpets.co.uk",
+  "priceRange": "£",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "87 Sibson Road",
+    "addressLocality": "Birstall",
+    "addressRegion": "Leicestershire",
+    "postalCode": "LE4 4NB",
+    "addressCountry": "GB"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "09:30",
+      "closes": "17:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "09:30",
+      "closes": "15:00"
+    }
+  ]
+}
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -523,6 +573,46 @@
       color: var(--ink-soft);
     }
 
+    /* FAQ */
+    .faq-list {
+      display: grid;
+      gap: 12px;
+      max-width: 760px;
+    }
+
+    .faq details {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 0 20px;
+    }
+
+    .faq summary {
+      cursor: pointer;
+      padding: 16px 0;
+      font-weight: 700;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .faq summary::-webkit-details-marker { display: none; }
+
+    .faq summary::after {
+      content: "+";
+      color: var(--green);
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+
+    .faq details[open] summary::after { content: "\2212"; }
+
+    .faq details p {
+      margin: 0 0 16px;
+      color: var(--ink-soft);
+    }
+
     /* Enquiry form */
     .ask {
       background: var(--white);
@@ -636,7 +726,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      color: var(--sun);
+      color: #ffd27a;
       margin-bottom: 4px;
     }
 
@@ -714,7 +804,7 @@
 
   <button class="splash" id="splash" type="button" aria-label="Enter the Birstall Pet Supplies website" hidden>
     <span class="splash-blur" aria-hidden="true"></span>
-    <img class="splash-photo" src="images/shop.jpg" alt="">
+    <img class="splash-photo" src="images/shop.jpg" width="1600" height="1200" alt="">
     <span class="splash-shade" aria-hidden="true"></span>
     <span class="splash-text">
       <span class="splash-title">Birstall Pet Supplies</span>
@@ -795,7 +885,7 @@
               <p>Birstall Pet Supplies</p>
             </div>
           </div>
-          <img src="images/shop.jpg" alt="The Birstall Pet Supplies shop front on Sibson Road, with pet food displays in the windows">
+          <img src="images/shop.jpg" width="1600" height="1200" fetchpriority="high" alt="The Birstall Pet Supplies shop front on Sibson Road, with pet food displays in the windows">
         </div>
       </div>
     </section>
@@ -828,11 +918,11 @@
         </div>
         <div class="photo-row">
           <figure class="photo">
-            <img src="images/treats-ears.jpg" alt="Boxes of natural chews on a shelf: rabbit ears, cow ears, furry cow ears and pig ears" loading="lazy">
+            <img src="images/treats-ears.jpg" width="1600" height="1200" alt="Boxes of natural chews on a shelf: rabbit ears, cow ears, furry cow ears and pig ears" loading="lazy">
             <figcaption>Rabbit ears, cow ears, pig ears and more, all priced up on the shelf.</figcaption>
           </figure>
           <figure class="photo">
-            <img src="images/treats-chews.jpg" alt="Trays of natural chews including pig snouts, beef trachea, pork rolls and duck necks" loading="lazy">
+            <img src="images/treats-chews.jpg" width="1600" height="1200" alt="Trays of natural chews including pig snouts, beef trachea, pork rolls and duck necks" loading="lazy">
             <figcaption>Beef trachea, pork rolls, duck necks and pig snouts. Something for every chewer.</figcaption>
           </figure>
         </div>
@@ -876,11 +966,11 @@
         </div>
         <div class="photo-row">
           <figure class="photo">
-            <img src="images/freezer.jpg" alt="A chest freezer full of bags of frozen raw dog food, including liver chunks and beef bones" loading="lazy" style="object-position: center 40%;">
+            <img src="images/freezer.jpg" width="1200" height="1600" alt="A chest freezer full of bags of frozen raw dog food, including liver chunks and beef bones" loading="lazy" style="object-position: center 40%;">
             <figcaption>Our freezer, packed with raw food ready to go.</figcaption>
           </figure>
           <figure class="photo">
-            <img src="images/treats-feet.jpg" alt="Trays of duck feet, chicken feet and puffed chicken feet, priced at 3 for £1.50" loading="lazy">
+            <img src="images/treats-feet.jpg" width="1600" height="1200" alt="Trays of duck feet, chicken feet and puffed chicken feet, priced at 3 for £1.50" loading="lazy">
             <figcaption>Duck feet and chicken feet, 3 for £1.50.</figcaption>
           </figure>
         </div>
@@ -913,6 +1003,41 @@
           </figure>
         </div>
         <p class="reviews-note">Rated 4.8 from 77 reviews on Google and 4.9 out of 5 on Facebook.</p>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Questions people ask us</h2>
+          <p>The quick answers. If yours isn't here, just give us a ring.</p>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>What are your opening hours?</summary>
+            <p>We're open Monday to Friday, 9:30am to 5pm, and Saturday, 9:30am to 3pm. We're closed on Sundays.</p>
+          </details>
+          <details>
+            <summary>Where is Birstall Pet Supplies?</summary>
+            <p>You'll find us at 87 Sibson Road, Birstall, Leicester LE4 4NB.</p>
+          </details>
+          <details>
+            <summary>Do you sell raw dog food?</summary>
+            <p>Yes. We stock Prime Raw: the Complete boxes are £23 a box and the Minces are £20 a box. We also have natural chews and treats from 80p each.</p>
+          </details>
+          <details>
+            <summary>Can I pre-order my pet's food?</summary>
+            <p>Yes. Give us a ring on 0116 267 1681 or send us a message, and we'll have your order ready to collect, or we can deliver it.</p>
+          </details>
+          <details>
+            <summary>Do you sell bird seed?</summary>
+            <p>We do. Pop in to see the range for the birds in your garden.</p>
+          </details>
+          <details>
+            <summary>How do I get in touch?</summary>
+            <p>Call us on 0116 267 1681, email contact@birstallpets.co.uk, or use the message form on this page.</p>
+          </details>
+        </div>
       </div>
     </section>
 

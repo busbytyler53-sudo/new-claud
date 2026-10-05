@@ -141,12 +141,9 @@
       50% { box-shadow: 0 0 0 14px rgba(244, 182, 63, 0); }
     }
 
-    /* Tall phone screens: show the whole shop front, not a cropped slice */
+    /* Tall phone screens: fill the screen, centred on the door and sign */
     @media (orientation: portrait) {
-      .splash-photo {
-        object-fit: contain;
-        object-position: center 38%;
-      }
+      .splash-photo { object-position: 42% center; }
     }
 
     @media (prefers-reduced-motion: reduce) {

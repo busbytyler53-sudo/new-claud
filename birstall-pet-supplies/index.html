@@ -45,6 +45,117 @@
       padding: 0 20px;
     }
 
+    /* Welcome screen: big shop front photo, tap to enter */
+    .splash {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: block;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      border: 0;
+      cursor: pointer;
+      overflow: hidden;
+      background: #0f1f1b;
+      color: var(--white);
+      font: inherit;
+      text-align: center;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+
+    .splash[hidden] { display: none; }
+
+    .splash.is-leaving {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .splash-blur {
+      position: absolute;
+      inset: -40px;
+      background: url("images/shop.jpg") center / cover no-repeat;
+      filter: blur(24px) brightness(0.55);
+    }
+
+    .splash-photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      animation: splash-zoom 12s ease-out forwards;
+    }
+
+    @keyframes splash-zoom {
+      from { transform: scale(1.06); }
+      to { transform: scale(1); }
+    }
+
+    .splash-shade {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0.85) 100%);
+    }
+
+    .splash-text {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 0 20px max(40px, env(safe-area-inset-bottom));
+    }
+
+    .splash-title {
+      display: block;
+      margin: 0 0 6px;
+      font-weight: 800;
+      color: var(--white);
+      font-size: clamp(2rem, 6vw, 3.6rem);
+      line-height: 1.1;
+      text-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
+    }
+
+    .splash-sub {
+      display: block;
+      margin: 0 0 22px;
+      font-size: 1.15rem;
+      opacity: 0.92;
+    }
+
+    .splash-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border-radius: 999px;
+      background: var(--sun);
+      color: var(--ink);
+      font-weight: 800;
+      font-size: 1.1rem;
+      animation: splash-pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes splash-pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(244, 182, 63, 0.6); }
+      50% { box-shadow: 0 0 0 14px rgba(244, 182, 63, 0); }
+    }
+
+    /* Tall phone screens: show the whole shop front, not a cropped slice */
+    @media (orientation: portrait) {
+      .splash-photo {
+        object-fit: contain;
+        object-position: center 38%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .splash-photo, .splash-cta { animation: none; }
+      .splash { transition: none; }
+    }
+
+    body.splash-open { overflow: hidden; }
+
     /* Header */
     header {
       position: sticky;
@@ -603,6 +714,31 @@
   </style>
 </head>
 <body>
+
+  <button class="splash" id="splash" type="button" aria-label="Enter the Birstall Pet Supplies website" hidden>
+    <span class="splash-blur" aria-hidden="true"></span>
+    <img class="splash-photo" src="images/shop.jpg" alt="">
+    <span class="splash-shade" aria-hidden="true"></span>
+    <span class="splash-text">
+      <span class="splash-title">Birstall Pet Supplies</span>
+      <span class="splash-sub">Your friendly local pet shop on Sibson Road</span>
+      <span class="splash-cta">Tap to come in 🐾</span>
+    </span>
+  </button>
+  <script>
+    // Show the welcome screen only when JavaScript can also close it
+    (function () {
+      const splash = document.getElementById("splash");
+      splash.hidden = false;
+      document.body.classList.add("splash-open");
+      splash.addEventListener("click", () => {
+        splash.classList.add("is-leaving");
+        document.body.classList.remove("splash-open");
+        setTimeout(() => splash.remove(), 650);
+      });
+      splash.focus({ preventScroll: true });
+    })();
+  </script>
 
   <header>
     <div class="wrap nav">

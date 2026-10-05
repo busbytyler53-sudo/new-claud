@@ -336,6 +336,138 @@
       color: var(--ink-soft);
     }
 
+    /* Products */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .product {
+      display: flex;
+      flex-direction: column;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .product .card-icon { margin-bottom: 14px; }
+
+    .product h3 {
+      margin: 0 0 6px;
+      font-size: 1.15rem;
+    }
+
+    .product p {
+      margin: 0 0 18px;
+      color: var(--ink-soft);
+      flex: 1;
+    }
+
+    .price {
+      align-self: flex-start;
+      background: var(--green-soft);
+      color: var(--green-dark);
+      font-weight: 800;
+      font-size: 1.15rem;
+      padding: 6px 14px;
+      border-radius: 999px;
+    }
+
+    .price small { font-weight: 600; font-size: 0.85rem; }
+
+    .price-ask { background: #fdf0d5; color: #7a5410; font-size: 0.9rem; }
+
+    .products-note {
+      margin-top: 24px;
+      color: var(--ink-soft);
+    }
+
+    /* Enquiry form */
+    .ask {
+      background: var(--white);
+      border-top: 1px solid var(--line);
+    }
+
+    .ask-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .contact-card {
+      background: var(--green-soft);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+
+    .contact-card h3 { margin: 0 0 16px; font-size: 1.2rem; }
+
+    .contact-line { margin-bottom: 16px; }
+
+    .contact-line span {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--green);
+    }
+
+    .contact-line a { font-weight: 700; color: var(--green-dark); word-break: break-word; }
+
+    .enquiry {
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+
+    .field { margin-bottom: 16px; }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .enquiry label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .enquiry input,
+    .enquiry textarea {
+      width: 100%;
+      font: inherit;
+      color: var(--ink);
+      background: var(--white);
+      border: 1.5px solid var(--line);
+      border-radius: 12px;
+      padding: 12px 14px;
+    }
+
+    .enquiry textarea { min-height: 140px; resize: vertical; }
+
+    .enquiry input:focus,
+    .enquiry textarea:focus {
+      outline: none;
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(31, 111, 92, 0.15);
+    }
+
+    .enquiry button { border: 0; cursor: pointer; font: inherit; font-weight: 700; }
+
+    .form-note {
+      margin: 12px 0 0;
+      font-size: 0.92rem;
+      color: var(--ink-soft);
+    }
+
     /* Visit */
     .visit { background: var(--green-dark); color: var(--white); }
 
@@ -411,10 +543,15 @@
     /* Phones and small tablets */
     @media (max-width: 860px) {
       .hero-grid, .visit-grid { grid-template-columns: 1fr; }
-      .cards, .reviews-grid { grid-template-columns: 1fr; }
+      .cards, .reviews-grid, .ask-grid { grid-template-columns: 1fr; }
+      .products-grid { grid-template-columns: 1fr 1fr; }
       .nav-links a:not(.btn) { display: none; }
       .hero { padding-top: 32px; }
       section { padding: 48px 0; }
+    }
+
+    @media (max-width: 560px) {
+      .products-grid, .field-row { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 420px) {
@@ -434,7 +571,9 @@
       </a>
       <nav class="nav-links" aria-label="Main">
         <a href="#about">About</a>
+        <a href="#shop">Raw food &amp; more</a>
         <a href="#reviews">Reviews</a>
+        <a href="#ask">Ask us</a>
         <a href="#visit">Visit us</a>
         <a class="btn btn-primary" href="tel:01162671681">Call us</a>
       </nav>
@@ -516,6 +655,49 @@
       </div>
     </section>
 
+    <section id="shop">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Raw food, treats and more</h2>
+          <p>
+            Thinking about raw feeding, or already a fan? We stock Prime Raw,
+            plus raw treats and bird seed. Here's what's on the shelves.
+          </p>
+        </div>
+        <div class="products-grid">
+          <div class="product">
+            <div class="card-icon" aria-hidden="true">🥩</div>
+            <h3>Prime Raw Complete</h3>
+            <p>Complete raw meals for your dog. Just defrost and serve.</p>
+            <span class="price">£23 <small>a box</small></span>
+          </div>
+          <div class="product">
+            <div class="card-icon" aria-hidden="true">🍖</div>
+            <h3>Prime Raw Minces</h3>
+            <p>Raw minces, great for mixing up your dog's meals.</p>
+            <span class="price">£20 <small>a box</small></span>
+          </div>
+          <div class="product">
+            <div class="card-icon" aria-hidden="true">🦴</div>
+            <h3>Raw treats</h3>
+            <p>Natural raw treats for when your dog's been a good boy or girl.</p>
+            <span class="price price-ask">See the range in store</span>
+          </div>
+          <div class="product">
+            <div class="card-icon" aria-hidden="true">🐦</div>
+            <h3>Bird seed</h3>
+            <p>Seed to keep the birds in your garden fed and happy all year round.</p>
+            <span class="price price-ask">See the range in store</span>
+          </div>
+        </div>
+        <p class="products-note">
+          Want a box put by for you? Give us a ring on
+          <a href="tel:01162671681">0116 267 1681</a> or <a href="#ask">send us a message</a>,
+          and we'll have it ready to collect or deliver.
+        </p>
+      </div>
+    </section>
+
     <section id="reviews">
       <div class="wrap">
         <div class="section-head">
@@ -537,6 +719,58 @@
           </figure>
         </div>
         <p class="reviews-note">Rated 4.8 from 77 reviews on Google and 4.9 out of 5 on Facebook.</p>
+      </div>
+    </section>
+
+    <section class="ask" id="ask">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Got a question? Just ask</h2>
+          <p>
+            Whether it's checking stock, putting an order by or asking which food
+            is best for your pet, drop us a message and we'll get back to you.
+          </p>
+        </div>
+        <div class="ask-grid">
+          <div class="contact-card">
+            <h3>Get in touch</h3>
+            <div class="contact-line">
+              <span>Phone</span>
+              <a href="tel:01162671681">0116 267 1681</a>
+            </div>
+            <div class="contact-line">
+              <span>Email</span>
+              <a class="shop-email-link" href="#"></a>
+            </div>
+            <div class="contact-line">
+              <span>Or pop in</span>
+              87 Sibson Road, Birstall, Leicester LE4 4NB
+            </div>
+          </div>
+
+          <form class="enquiry" id="enquiry-form">
+            <div class="field-row">
+              <div class="field">
+                <label for="enq-name">Your name</label>
+                <input id="enq-name" name="name" type="text" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label for="enq-contact">Your email or phone</label>
+                <input id="enq-contact" name="contact" type="text" autocomplete="email" required>
+              </div>
+            </div>
+            <div class="field">
+              <label for="enq-subject">Subject</label>
+              <input id="enq-subject" name="subject" type="text" placeholder="e.g. Prime Raw box for Saturday" required>
+            </div>
+            <div class="field">
+              <label for="enq-message">Your message</label>
+              <textarea id="enq-message" name="message" required></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit">Send message</button>
+            <p class="form-note">This opens your email app with your message ready to send to us.</p>
+          </form>
+        </div>
       </div>
     </section>
 
@@ -586,6 +820,29 @@
       </span>
     </div>
   </footer>
+
+  <script>
+    // TODO: put the shop's real email address here
+    const SHOP_EMAIL = "shop-email@example.com";
+
+    document.querySelectorAll(".shop-email-link").forEach((link) => {
+      link.href = "mailto:" + SHOP_EMAIL;
+      link.textContent = SHOP_EMAIL;
+    });
+
+    document.getElementById("enquiry-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const form = event.target;
+      const body =
+        form.message.value.trim() +
+        "\n\nFrom: " + form.name.value.trim() +
+        "\nContact: " + form.contact.value.trim();
+      window.location.href =
+        "mailto:" + SHOP_EMAIL +
+        "?subject=" + encodeURIComponent(form.subject.value.trim()) +
+        "&body=" + encodeURIComponent(body);
+    });
+  </script>
 
 </body>
 </html>

@@ -1,6 +1,6 @@
 import json, os, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
-L = json.load(open(os.path.join(HERE, "solano8.json")))["logos"]
+L = json.load(open(os.path.join(HERE, "solano9.json")))["logos"]
 
 def tone(hexc, amt):
     r, g, b = (int(hexc[i:i + 2], 16) for i in (1, 3, 5))
@@ -10,7 +10,7 @@ def tone(hexc, amt):
 NEUTRALS = {"chalk": "#F1EFEA", "oat": "#DDD5C6", "stone": "#B5B0A6", "olive": "#7D7E68", "navy": "#232B38", "black": "#1F1F1D"}
 DARK = ("olive", "navy", "black")
 T = {k: {"bg": v, "ink": tone(v, .3 if k in DARK else -.3)} for k, v in NEUTRALS.items()}
-NAMES = {"chalk": "Chalk", "oat": "Oat", "stone": "Stone", "olive": "Olive", "navy": "Navy", "black": "Black"}
+NAMES = {"chalk": "Gesso", "oat": "Avena", "stone": "Pietra", "olive": "Oliva", "navy": "Notte", "black": "Nero"}
 
 def logo(name, cls="", label=""):
     l = L[name]
@@ -77,7 +77,7 @@ def cap(c):
                  f'<circle cx="200" cy="94" r="7" fill="{bg}" stroke="{ink}" stroke-opacity=".3"/>'
                  f'<path d="M48 250 Q200 214 352 250 Q370 300 200 318 Q30 300 48 250 Z" fill="{bg}"/>'
                  f'<path d="M48 250 Q200 214 352 250" fill="none" stroke="{ink}" stroke-opacity=".3" stroke-width="2"/>'
-                 f'{placed("emblem", 200, 140, 62, ink)}')
+                 f'{placed("crest", 200, 112, 96, ink)}')
 
 def fig(svg, title, sub):
     return (f'<figure class="blank"><div class="ground">{svg}</div>'
@@ -86,20 +86,20 @@ def fig(svg, title, sub):
 lines = [
     ("sport", "09:00", "Sport", "Activewear",
      "The Solano Club kit. Training tees, shorts and layers that go from the Sunday run straight into the day. Quick-dry, four-way stretch, cut like the rest of the range so nothing looks like gym kit at the coffee shop.",
-     [fig(frame(tee("black", placed("line-sport", 250, 92, 84, T["black"]["ink"]))), "Training tee", "Black, tech jersey"),
-      fig(shorts("navy"), "Training short", "Navy, 7 inch, lined")]),
+     [fig(frame(tee("black", placed("line-sport", 250, 92, 84, T["black"]["ink"]))), "Training tee", "Nero, tech jersey"),
+      fig(shorts("navy"), "Training short", "Notte, 7 inch, lined")]),
     ("giorno", "13:00", "Giorno", "Smart casual",
      "The office, the lunch, the afternoon meeting. Knit polos, pleated trousers, overshirts. Clean enough for a client, relaxed enough for a Friday.",
-     [fig(polo("oat"), "Knit polo", "Oat, fine gauge cotton"),
-      fig(trousers("stone"), "Pleated trouser", "Stone, relaxed taper")]),
+     [fig(polo("oat"), "Knit polo", "Avena, fine gauge cotton"),
+      fig(trousers("stone"), "Pleated trouser", "Pietra, relaxed taper")]),
     ("sera", "21:00", "Sera", "Date night",
      "The evening pieces. Camp-collar shirts, dark trousers, no logo on the outside at all. The label inside does the work. This is where the margin is.",
-     [fig(shirt("black"), "Camp-collar shirt", "Black, fluid viscose"),
-      fig(trousers("navy"), "Evening trouser", "Navy, wool blend")]),
+     [fig(shirt("black"), "Camp-collar shirt", "Nero, fluid viscose"),
+      fig(trousers("navy"), "Evening trouser", "Notte, wool blend")]),
     ("strada", "Any time", "Strada", "Streetwear",
      "Heavyweight hoodies, sweats and caps with the bigger branding. The back print, the emblem on the cap. The pieces that get the brand seen on the street.",
-     [fig(hoodie_back("olive", placed("club", 200, 120, 200, T["olive"]["ink"])), "Hoodie, back", "Olive, 480 gsm"),
-      fig(cap("chalk"), "Cap", "Chalk, washed twill")]),
+     [fig(hoodie_back("olive", placed("club", 200, 120, 200, T["olive"]["ink"])), "Hoodie, back", "Oliva, 480 gsm"),
+      fig(cap("chalk"), "Cap", "Gesso, washed twill")]),
 ]
 lines_html = "\n".join(
     f'<article class="line"><div class="line-text"><p class="label">{time}</p>{logo("line-" + k, "line-mark", "Solano " + nm)}'
@@ -110,7 +110,7 @@ blanks_html = "\n".join(fig(frame(tee(k, placed("wordmark", 200, 106, 82, t["ink
 
 suite = [("wordmark", "Solano", "The full name."), ("lockup", "Lockup", "Emblem and name together."),
          ("sol", "SOL.", "The short name."), ("emblem", "Sun and wind", "The emblem."),
-         ("club", "Solano Club", "The community name."), ("label", "Label", "Inside every piece.")]
+         ("club", "Heritage lockup", "Italia, MMXXVI."), ("crest", "Club crest", "Solano Club, centre chest.")]
 suite_html = "\n".join(
     f'<figure class="mark m-{n}"><div class="mark-art">{logo(n)}</div><figcaption><span>{t}</span><span class="dim">{d}</span></figcaption></figure>'
     for n, t, d in suite)
@@ -119,10 +119,10 @@ swatch_html = "\n".join(
     f'<div class="sw"><div class="chip" style="background:{t["bg"]}"><span style="color:{t["ink"]}">SOLANO</span></div>'
     f'<span>{NAMES[k]}</span><span class="dim">{t["bg"]}</span></div>' for k, t in T.items())
 
-page = open(os.path.join(HERE, "page8.tpl.html")).read()
+page = open(os.path.join(HERE, "page9.tpl.html")).read()
 for k, v in {"HERO": logo("lockup", "hero-mark", "Solano"), "FOOT": logo("emblem", "foot-mark"),
              "LINES": lines_html, "BLANKS": blanks_html, "SUITE": suite_html, "SWATCHES": swatch_html,
-             "N9": logo("sol", "inline-n9"), "CLOCK": logo("emblem", "inline-clock"), "STAMP": logo("club", "inline-stamp")}.items():
+             "N9": logo("sol", "inline-n9"), "CLOCK": logo("emblem", "inline-clock"), "STAMP": logo("crest", "inline-crest")}.items():
     page = page.replace("{{" + k + "}}", v)
 open(sys.argv[1], "w").write(page)
 print("built", len(page))

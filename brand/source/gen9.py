@@ -1,9 +1,10 @@
-"""Solano: clean wide-sans identity, sun-and-wind emblem, club and line lockups. All text outlined."""
+"""Solano heritage edition: Bodoni wordmark, club crest, sun-and-wind emblem, club and line lockups. All text outlined."""
 import json, os, sys
 OUT = sys.argv[1]
 from fontTools.ttLib import TTFont
 from fontTools.varLib.instancer import instantiateVariableFont
-from svlib import run, bounds, F
+from svlib import run, bounds, arc, F, BODI, BOD_SM, COR, inst
+BOD = inst("bodoni.ttf", wght=520, opsz=22)
 HERE = os.path.dirname(os.path.abspath(__file__))
 
 def arch(wght, wdth):
@@ -22,12 +23,12 @@ def sunwind(cx, cy, r, sw):
 clock = sunwind
 
 logos = {}
-d, w = run(AW, "SOLANO", 100, track=0.26)
-b = bounds(AW, "SOLANO", 100, track=0.26); ch = -b[1]
+d, w = run(BOD, "SOLANO", 100, track=0.26)
+b = bounds(BOD, "SOLANO", 100, track=0.26); ch = -b[1]
 logos["wordmark"] = (w + 20, ch + 20, f'<path transform="translate(10 {ch + 10:.2f})" d="{d}"/>')
 
-dn, _ = run(AWB, "SOL.", 100, track=0.04)
-bn = bounds(AWB, "SOL.", 100, track=0.04)
+dn, _ = run(BODI, "Sol.", 100, track=0.02)
+bn = bounds(BODI, "Sol.", 100, track=0.02)
 logos["sol"] = (bn[2] - bn[0] + 20, -bn[1] + 20, f'<path transform="translate({10 - bn[0]:.2f} {10 - bn[1]:.2f})" d="{dn}"/>')
 
 logos["emblem"] = (240, 200, clock(100, 100, 96, 14))
@@ -39,7 +40,7 @@ logos["lockup"] = (10 + 2.25 * r + 46 + w + 10, ch + 20,
 
 # Time stamp lockup: NOVE over 09:00 / 21:00 with rules
 W = w + 20; mid = W / 2
-dt, wt = run(AL, "CLUB", 26, mid, ch + 10 + 54, track=0.3, anchor="middle")
+dt, wt = run(AL, "ITALIA \u00b7 MMXXVI", 22, mid, ch + 10 + 54, track=0.3, anchor="middle")
 gap = wt / 2 + 20; ry = ch + 10 + 45
 logos["club"] = (W, ch + 10 + 66,
                   f'<path transform="translate(10 {ch + 10:.2f})" d="{d}"/><path d="{dt}"/>'
@@ -56,15 +57,29 @@ for line in ("SPORT", "GIORNO", "SERA", "STRADA"):
     logos["line-" + line.lower()] = (x2 + 22 + wl + 10, ch + 20, body)
 
 # Woven label
-dw, _ = run(AW, "SOLANO", 32, 170, 74, track=0.3, anchor="middle")
-ds, _ = run(AR, "GOES WHERE YOU GO", 12, 170, 166, track=0.3, anchor="middle")
+dw, _ = run(BOD, "SOLANO", 34, 170, 74, track=0.3, anchor="middle")
+ds, _ = run(AR, "VA DOVE VAI", 13, 170, 166, track=0.3, anchor="middle")
 logos["label"] = (340, 190, f'<rect x="4" y="4" width="332" height="182" rx="10" fill="none" stroke="currentColor" stroke-width="4"/>'
                   f'<path d="{dw}"/>' + clock(164, 116, 22, 4.5) + f'<path d="{ds}"/>')
 
-json.dump({"logos": {k: {"w": v[0], "h": v[1], "body": v[2]} for k, v in logos.items()}}, open(os.path.join(HERE, "solano8.json"), "w"))
+json.dump({"logos": {k: {"w": v[0], "h": v[1], "body": v[2]} for k, v in logos.items()}}, open(os.path.join(HERE, "solano9.json"), "w"))
 os.makedirs(os.path.join(OUT, "logos"), exist_ok=True)
 for name, (w_, h_, body) in logos.items():
     for suf, fill in (("black", "#1F1F1D"), ("chalk", "#F1EFEA"), ("stone", "#8C877D")):
         open(os.path.join(OUT, "logos", f"solano-{name}-{suf}.svg"), "w").write(
             f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w_:g} {h_:g}" fill="{fill}" color="{fill}">{body}</svg>\n')
 print("ok", {k: (round(v[0]), round(v[1])) for k, v in logos.items()})
+
+# Club crest, Culture Club style: ring, arched text, emblem centre
+R, C = 160, 170
+top = arc(BOD, "SOLANO \u00b7 CLUB", 26, R - 40, C, C, 0, track=0.3)
+bot = arc(BOD, "ITALIA \u00b7 MMXXVI", 19, R - 24, C, C, 180, track=0.3, inside=True)
+body = (f'<circle cx="{C}" cy="{C}" r="{R}" fill="none" stroke="currentColor" stroke-width="4"/>'
+        f'<circle cx="{C}" cy="{C}" r="{R - 10}" fill="none" stroke="currentColor" stroke-width="1.2"/>'
+        f'<circle cx="{C}" cy="{C}" r="{R - 74}" fill="none" stroke="currentColor" stroke-width="1.2"/>'
+        f'<path d="{top}"/><path d="{bot}"/>' + clock(C - 8, C, 44, 7))
+logos["crest"] = (2 * C, 2 * C, body)
+json.dump({"logos": {k: {"w": v[0], "h": v[1], "body": v[2]} for k, v in logos.items()}}, open(os.path.join(HERE, "solano9.json"), "w"))
+for suf, fill in (("black", "#1F1F1D"), ("chalk", "#F1EFEA"), ("stone", "#8C877D")):
+    open(os.path.join(OUT, "logos", f"solano-crest-{suf}.svg"), "w").write(
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {2 * C} {2 * C}" fill="{fill}" color="{fill}">{body}</svg>\n')

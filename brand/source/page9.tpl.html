@@ -1,7 +1,7 @@
 <title>Solano</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..500&display=swap">
 <style>
 /* Layout: a lookbook with nothing in it but product. Chalk ground, one wide sans, generous air, grey captions. Single fixed look, by choice. */
 :root {
@@ -103,7 +103,7 @@ footer p { margin: 18px 0 0; font-size: 11px; letter-spacing: .3em; text-transfo
   .week > div > .dim { grid-column: 2; }
 }
 .hero-mark { max-width: 460px; }
-.m-sol .logo { max-width: 120px; } .m-emblem .logo { max-width: 110px; } .m-stamp .logo { max-width: 240px; }
+.m-sol .logo { max-width: 110px; } .m-crest .logo { max-width: 150px; } .inline-crest { height: 120px !important; } h2 { font-family: "Bodoni Moda", Didot, Georgia, serif; font-stretch: normal; text-transform: none; letter-spacing: 0; font-weight: 500; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.12; } .m-emblem .logo { max-width: 110px; } .m-stamp .logo { max-width: 240px; }
 .marks { grid-template-columns: repeat(12, 1fr); } .mark { grid-column: span 3; } .mark.m-wordmark, .mark.m-lockup { grid-column: span 6; }
 .lines { display: grid; gap: clamp(40px, 6vw, 72px); margin-top: 40px; }
 .line { display: grid; grid-template-columns: 1fr 2fr; gap: clamp(24px, 4vw, 56px); align-items: start; border-top: 1px solid var(--rule); padding-top: 24px; }
@@ -115,7 +115,7 @@ footer p { margin: 18px 0 0; font-size: 11px; letter-spacing: .3em; text-transfo
 .line-mocks { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--rule); border: 1px solid var(--rule); margin-top: 40px; }
 .trio > div { background: var(--ground); padding: clamp(22px, 3vw, 36px); display: grid; gap: 18px; align-content: start; }
-.trio .art { height: 90px; display: flex; align-items: center; }
+.trio .art { height: 120px; display: flex; align-items: center; }
 .trio .art .logo { width: auto; height: 100%; max-width: 100%; }
 .inline-stamp { height: 70px !important; }
 .trio p { margin: 0; }
@@ -134,7 +134,7 @@ footer p { margin: 18px 0 0; font-size: 11px; letter-spacing: .3em; text-transfo
 <header>
   <div class="wrap">
     {{HERO}}
-    <p class="sub">Goes where you go</p>
+    <p class="sub">Va dove vai · Goes where you go</p>
   </div>
 </header>
 
@@ -143,12 +143,12 @@ footer p { margin: 18px 0 0; font-size: 11px; letter-spacing: .3em; text-transfo
     <div class="wrap intro">
       <div>
         <p class="label">The story</p>
-        <h2>The warm wind that goes everywhere.</h2>
+        <h2>Born of the Italian summer. Made for every day.</h2>
       </div>
       <div class="copy">
-        <p>Solano is the old name for a warm summer wind that blows in off the Mediterranean. It doesn't stay in one place. It moves through the beach in the morning, the town at midday, the terrace at night. Same wind, all day, everywhere.</p>
-        <p>That's the brand. Clothes that go where you go: the run, the office, the coffee, the dinner, the late walk home. Same palette, same clean cuts, same quiet branding, so the training short works with the knit polo and the evening shirt works with the hoodie. Pick something up every day and it never gets old, because it was never trying to be loud.</p>
-        <p>And the name shortens on its own. Sol is the sun. Nobody has to be told to call it that.</p>
+        <p>Solano is the old Mediterranean name for the warm wind that comes in off the sea in summer. Along the Italian coast it's the wind of long days: espresso at the bar in the morning, the walk along the water at midday, the terrace at night. It doesn't stay in one place. It goes everywhere, all day.</p>
+        <p>That's the brand. Italian in its roots, clean in how it looks, and made to go where you go: the run, the office, the coffee, the dinner, the walk home. Six colours with Italian names, cuts that don't date, branding that whispers. Pick it up every day and it never gets old, because it was never trying to be loud.</p>
+        <p>The name shortens on its own. Sol is the sun. And the line on every label says it in Italian first: <i>va dove vai</i>, it goes where you go.</p>
       </div>
     </div>
   </section>
@@ -157,12 +157,12 @@ footer p { margin: 18px 0 0; font-size: 11px; letter-spacing: .3em; text-transfo
     <div class="wrap">
       <div class="intro">
         <div><p class="label">The names</p><h2>Solano, Sol. and the Solano Club.</h2></div>
-        <div class="copy"><p>A brand people talk about gets said in different ways. Solano gives you three, plus a mark that needs no words.</p></div>
+        <div class="copy"><p>The heritage lives in the serif wordmark, the crest and the Italian on every label. Everything around it stays clean.</p></div>
       </div>
       <div class="trio">
-        <div><div class="art">{{N9}}</div><p><b>SOL.</b> The short name. What regulars call it, and what goes on sleeves, back necks and the handle: @sol.solano.</p></div>
-        <div><div class="art">{{CLOCK}}</div><p><b>Sun and wind.</b> A sun with the wind running through it. The emblem for caps, socks and activewear. Once people know it, it replaces the name.</p></div>
-        <div><div class="art">{{STAMP}}</div><p><b>Solano Club.</b> The community. A Sunday run club, the people who wear it, the drops they get first. This is your Culture Club: membership, not merch.</p></div>
+        <div><div class="art">{{N9}}</div><p><b>Sol.</b> The short name, in Bodoni italic. What regulars call it, and what goes on sleeves, back necks and the handle: @sol.solano.</p></div>
+        <div><div class="art">{{CLOCK}}</div><p><b>Sun and wind.</b> A sun with the Solano blowing through it. The emblem for caps, socks and activewear. It works with no words at all.</p></div>
+        <div><div class="art">{{STAMP}}</div><p><b>The club crest.</b> Solano Club, Italia, MMXXVI. The Culture Club move: a crest on the chest that makes the wearer a member. Sweats, knits and the run club kit.</p></div>
       </div>
     </div>
   </section>
@@ -183,7 +183,7 @@ footer p { margin: 18px 0 0; font-size: 11px; letter-spacing: .3em; text-transfo
     <div class="wrap">
       <div class="intro">
         <div><p class="label">The base</p><h2>One tee, six colours, under everything.</h2></div>
-        <div class="copy"><p>The heavyweight tee sits across all four lines: under the overshirt, under the hoodie, on its own at the gym. It's the piece people buy first and buy again. Tonal wordmark, one shade off the cloth.</p></div>
+        <div class="copy"><p>The heavyweight tee sits across all four lines: under the overshirt, under the hoodie, on its own at the gym. It's the piece people buy first and buy again. Tonal wordmark, one shade off the cloth. Colours named in Italian on every tag.</p></div>
       </div>
       <div class="blanks">
 {{BLANKS}}
@@ -212,8 +212,8 @@ footer p { margin: 18px 0 0; font-size: 11px; letter-spacing: .3em; text-transfo
   <section>
     <div class="wrap">
       <div class="intro">
-        <div><p class="label">Marks</p><h2>Six marks, all quiet.</h2></div>
-        <div class="copy"><p>One wide sans for everything. The sun and wind is the only drawing in the system. Branding gets quieter as the day goes on: bold on Strada, small on Sport, label only on Giorno and Sera.</p></div>
+        <div><p class="label">Marks</p><h2>Heritage in the type. Clean everywhere else.</h2></div>
+        <div class="copy"><p>Bodoni for the name, a wide sans for everything else. The sun and wind and the crest are the only drawings in the system. Branding gets quieter as the day goes on: bold on Strada, small on Sport, label only on Giorno and Sera.</p></div>
       </div>
       <div class="marks">
 {{SUITE}}
@@ -224,8 +224,8 @@ footer p { margin: 18px 0 0; font-size: 11px; letter-spacing: .3em; text-transfo
   <section>
     <div class="wrap">
       <div class="intro">
-        <div><p class="label">Colour</p><h2>Six colours. Everything goes with everything.</h2></div>
-        <div class="copy"><p>The same six colours across all four lines, so a customer can mix a Sport short with a Strada hoodie and a Giorno polo and it always works. The logo is the garment colour, one shade darker, or one shade lighter on Olive, Navy and Black.</p></div>
+        <div><p class="label">Colour</p><h2>Sei colori. Everything goes with everything.</h2></div>
+        <div class="copy"><p>The same six colours across all four lines, so a customer can mix a Sport short with a Strada hoodie and a Giorno polo and it always works. The logo is the garment colour, one shade darker, or one shade lighter on Oliva, Notte and Nero.</p></div>
       </div>
       <div class="swatches">
 {{SWATCHES}}
@@ -252,6 +252,6 @@ footer p { margin: 18px 0 0; font-size: 11px; letter-spacing: .3em; text-transfo
 <footer>
   <div class="wrap">
     {{FOOT}}
-    <p>Solano · Goes where you go</p>
+    <p>Solano · Italia · Va dove vai</p>
   </div>
 </footer>

@@ -1,17 +1,23 @@
-# Tenure
+# Nove
 
-Clean blanks clothing brand. Replaces the earlier Italian-themed drafts (still in git history).
+Clean clothing brand. Replaces the earlier drafts (Sottovoce, Solano, Agosto, Tenure), all still in git history.
 
-Story: everyone owns one piece that never left. That piece has tenure. We make it on purpose.
+Story: Nove is Italian for nine. 09:00 to 21:00, one wardrobe for the whole day.
 
-- Full name: Tenure
-- Short name: TNR.
-- Emblem: the tally (five strokes, counting years)
-- Collections: Year 01, Year 02... Every piece carries a numbered year label.
+- Full name: Nove
+- Short name: N°9
+- Emblem: a clock with its hands at nine o'clock
+- Story line: 09:00 / 21:00
 
-`logos/` has every mark as outlined SVG in black, chalk and stone: wordmark, lockup, tnr, tally, label.
-`brand-sheet.html` is the lookbook. `source/gen5.py` and `source/build5.py` regenerate everything
+Lines, each named for a time of day:
+- Sport (09:00): activewear
+- Giorno (13:00): smart casual
+- Sera (21:00): date night
+- Strada (any time): streetwear
+
+`logos/` has every mark as outlined SVG in black, chalk and stone: wordmark, lockup, n9, clock, stamp,
+label, and line lockups (line-sport, line-giorno, line-sera, line-strada).
+`brand-sheet.html` is the brand sheet. `source/gen6.py` and `source/build6.py` regenerate everything
 (needs fonttools and Archivo from Google Fonts in `source/fonts/`).
 
-Core colours: Chalk #F1EFEA, Oat #DDD5C6, Stone #B5B0A6, Moss #8F9580, Slate #3E4650, Black #1F1F1D.
-Logos print tonal: one shade darker than the garment, one shade lighter on Slate and Black.
+Colours: Chalk #F1EFEA, Oat #DDD5C6, Stone #B5B0A6, Olive #7D7E68, Navy #232B38, Black #1F1F1D.

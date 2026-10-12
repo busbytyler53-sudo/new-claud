@@ -1,4 +1,4 @@
-<title>Tenure</title>
+<title>Nove</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..700&display=swap">
@@ -69,7 +69,7 @@ footer p { margin: 18px 0 0; font-size: 11px; letter-spacing: .3em; text-transfo
   .intro { grid-template-columns: 1fr; }
   .blanks { grid-template-columns: 1fr 1fr; }
   .marks { grid-template-columns: 1fr 1fr; }
-  .mark, .mark.m-wordmark, .mark.m-lockup { grid-column: span 1; }
+  .marks { grid-template-columns: 1fr 1fr; } .mark, .mark.m-wordmark, .mark.m-lockup { grid-column: span 1; }
   .mark.m-wordmark, .mark.m-lockup { grid-column: span 2; }
   .swatches { grid-template-columns: repeat(3, 1fr); }
   .spec > div { grid-template-columns: 1fr 1fr; }
@@ -102,12 +102,39 @@ footer p { margin: 18px 0 0; font-size: 11px; letter-spacing: .3em; text-transfo
   .week > div { grid-template-columns: 6em 1fr; }
   .week > div > .dim { grid-column: 2; }
 }
+.hero-mark { max-width: 460px; }
+.m-n9 .logo { max-width: 130px; } .m-clock .logo { max-width: 90px; } .m-stamp .logo { max-width: 240px; }
+.marks { grid-template-columns: repeat(12, 1fr); } .mark { grid-column: span 3; } .mark.m-wordmark, .mark.m-lockup { grid-column: span 6; }
+.lines { display: grid; gap: clamp(40px, 6vw, 72px); margin-top: 40px; }
+.line { display: grid; grid-template-columns: 1fr 2fr; gap: clamp(24px, 4vw, 56px); align-items: start; border-top: 1px solid var(--rule); padding-top: 24px; }
+.line > * { min-width: 0; }
+.line-text { display: grid; gap: 12px; }
+.line-text p { margin: 0; max-width: 46ch; }
+.line-mark { max-width: 300px; margin-top: 6px; }
+.line-cat { font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--dim); }
+.line-mocks { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--rule); border: 1px solid var(--rule); margin-top: 40px; }
+.trio > div { background: var(--ground); padding: clamp(22px, 3vw, 36px); display: grid; gap: 18px; align-content: start; }
+.trio .art { height: 90px; display: flex; align-items: center; }
+.trio .art .logo { width: auto; height: 100%; max-width: 100%; }
+.inline-stamp { height: 70px !important; }
+.trio p { margin: 0; }
+@media (max-width: 860px) {
+  .line { grid-template-columns: 1fr; }
+  .trio { grid-template-columns: 1fr; }
+  .marks { grid-template-columns: 1fr 1fr; } .mark, .mark.m-wordmark, .mark.m-lockup { grid-column: span 1; }
+  .mark.m-wordmark, .mark.m-lockup { grid-column: span 2; }
+}
+@media (max-width: 480px) {
+  .line-mocks { grid-template-columns: 1fr; }
+  .mark.m-wordmark, .mark.m-lockup { grid-column: span 1; }
+}
 </style>
 
 <header>
   <div class="wrap">
     {{HERO}}
-    <p class="sub">Built to stay · Year 01</p>
+    <p class="sub">09:00 / 21:00</p>
   </div>
 </header>
 
@@ -116,12 +143,12 @@ footer p { margin: 18px 0 0; font-size: 11px; letter-spacing: .3em; text-transfo
     <div class="wrap intro">
       <div>
         <p class="label">The story</p>
-        <h2>Everyone owns one piece that never left.</h2>
+        <h2>Nine to nine. One wardrobe for the whole day.</h2>
       </div>
       <div class="copy">
-        <p>The grey sweatshirt you've had since school. The tee that's been through every holiday, every move, every version of you. It's faded, it's softer than anything you've bought since, and you still reach for it first. That piece has tenure. It earned its place by staying.</p>
-        <p>Tenure makes that piece on purpose. Heavy cotton, cuts that don't date, colours that go with each other and with everything else you own. No trends to chase, nothing loud to get bored of. Clothes for the actual week you live: the gym at 6, the laptop at 9, the train home, the late dinner, the Sunday that goes nowhere.</p>
-        <p>Every piece is labelled with the year it was made. The idea is simple: the older your label, the better it looks on you.</p>
+        <p>Nove is Italian for nine. 09:00 is the gym, the commute, the first coffee. 21:00 is the table for two, the bar, the walk home. Everything in between is a normal day, and most people own three wardrobes to get through it: gym kit that looks like gym kit, work clothes that look like work, and one good shirt for going out.</p>
+        <p>Nove is one wardrobe that does all of it. Same palette, same clean cuts, same quiet branding, so the training short works with the knit polo and the evening shirt works with the hoodie. You don't have to think about it. You just get dressed.</p>
+        <p>That's the whole idea, and it's why the brand fits activewear, smart casual, date night and streetwear without feeling like four different labels.</p>
       </div>
     </div>
   </section>
@@ -129,14 +156,13 @@ footer p { margin: 18px 0 0; font-size: 11px; letter-spacing: .3em; text-transfo
   <section>
     <div class="wrap">
       <div class="intro">
-        <div><p class="label">The names</p><h2>One brand, four ways to say it.</h2></div>
-        <div class="copy"><p>Strong brands get used in different ways by different people. Customers shorten it, the press writes it out in full, the logo works without words. Tenure is built to be said all four ways.</p></div>
+        <div><p class="label">The names</p><h2>Nove, N°9 and a clock that always says nine.</h2></div>
+        <div class="copy"><p>Four ways the brand gets said and seen. Customers will shorten it on their own, and the clock means the logo works with no words at all.</p></div>
       </div>
-      <div class="names">
-        <div><b>Tenure</b><span class="dim">The full name</span><span>What's on the shop front, the website and the press. Sounds established on day one.</span></div>
-        <div><b>TNR.</b><span class="dim">The short name</span><span>What the regulars call it, and the handle: @tnr.studio. Goes on sleeves and under collars.</span></div>
-        <div><b>The tally</b><span class="dim">The mark</span><span>Five strokes, one for each year. Counting time is the whole idea. Once people know it, it replaces the name.</span></div>
-        <div><b>Year 01</b><span class="dim">The collection</span><span>Every collection is a year, not a season. Year 01, Year 02. Owners collect the labels.</span></div>
+      <div class="trio">
+        <div><div class="art">{{N9}}</div><p><b>N°9.</b> The short name. Sleeves, back necks, the handle (@nove.n9). Reads in English, Italian and French.</p></div>
+        <div><div class="art">{{CLOCK}}</div><p><b>The clock.</b> Hands at nine o'clock. The emblem for caps, socks, buttons and the activewear. Once people know it, it replaces the name.</p></div>
+        <div><div class="art">{{STAMP}}</div><p><b>09:00 / 21:00.</b> The story in two numbers. Back prints, packaging, the hang tag, the bottom of every email.</p></div>
       </div>
     </div>
   </section>
@@ -144,8 +170,20 @@ footer p { margin: 18px 0 0; font-size: 11px; letter-spacing: .3em; text-transfo
   <section>
     <div class="wrap">
       <div class="intro">
-        <div><p class="label">The core</p><h2>One tee, six colours.</h2></div>
-        <div class="copy"><p>Same pattern, same weight, six neutrals. Wordmark across the chest in a tone one shade off the cloth, so it's there when you look for it and invisible when you don't. Launch with six and add one colour a year, never more.</p></div>
+        <div><p class="label">The lines</p><h2>Four lines, one look.</h2></div>
+        <div class="copy"><p>Each line is named after a time of day, so the range explains itself on the website. Same colours and the same branding rules across all four, which is what stops it feeling like a brand with no niche. The niche is the whole day.</p></div>
+      </div>
+      <div class="lines">
+{{LINES}}
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="intro">
+        <div><p class="label">The base</p><h2>One tee, six colours, under everything.</h2></div>
+        <div class="copy"><p>The heavyweight tee sits across all four lines: under the overshirt, under the hoodie, on its own at the gym. It's the piece people buy first and buy again. Tonal wordmark, one shade off the cloth.</p></div>
       </div>
       <div class="blanks">
 {{BLANKS}}
@@ -156,61 +194,17 @@ footer p { margin: 18px 0 0; font-size: 11px; letter-spacing: .3em; text-transfo
   <section>
     <div class="wrap">
       <div class="intro">
-        <div><p class="label">The year label</p><h2>Every piece is numbered.</h2></div>
-        <div class="copy"><p>This is the detail that makes a blanks brand feel like more than blanks.</p></div>
-      </div>
-      <div class="years">
-        <div class="label-ground">{{LABEL}}</div>
-        <div class="copy">
-          <p>A woven label inside the back neck carries the year and a number. The first thousand hoodies are N° 0001 to N° 1000 of Year 01, and that never happens again.</p>
-          <p>It gives early customers a reason to buy now, it gives you a story every launch, and in five years someone will post their faded Year 01 hoodie and that post will do more for the brand than any ad.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <div class="intro">
-        <div><p class="label">The details</p><h2>Quiet on the outside.</h2></div>
-        <div class="copy"><p>No big graphics. The brand shows up where owners notice: the year label, TNR. under the collar, the tally on the cap.</p></div>
-      </div>
-      <div class="blanks">
-{{DETAILS}}
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <div class="intro">
-        <div><p class="label">The life</p><h2>A week in Tenure.</h2></div>
-        <div class="copy"><p>The image you're selling is an ordinary week, done well. Shoot it like this: real places, early light, no models posing.</p></div>
-      </div>
-      <div class="week">
-        <div><b>Mon 06:10</b><span>Gym before work. Car park still dark.</span><span class="dim">Black hoodie, Stone short</span></div>
-        <div><b>Wed 09:30</b><span>Laptop open in the corner café, third flat white.</span><span class="dim">Oat crewneck</span></div>
-        <div><b>Thu 18:45</b><span>Train home, headphones in, nobody talking.</span><span class="dim">Slate hoodie, Black sweatpant</span></div>
-        <div><b>Fri 21:00</b><span>Dinner with the same four friends as always.</span><span class="dim">Chalk tee under an overshirt</span></div>
-        <div><b>Sun 11:00</b><span>Long walk, coffee, nowhere to be.</span><span class="dim">Moss crewneck, the cap</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <div class="intro">
         <div><p class="label">The range</p><h2>What to make first.</h2></div>
-        <div class="copy"><p>Weight is where blanks brands win or lose. Go heavier than you think. People feel it in the shop before they look at the logo.</p></div>
+        <div class="copy"><p>Don't launch all four lines at once. Start with the base tee, two Strada pieces and one Sport piece. Add Giorno and Sera in season two once you know your customer's size and spend.</p></div>
       </div>
       <div class="spec">
-        <div><span class="th">Piece</span><span class="th">Weight</span><span class="th">Fit</span><span class="th">Branding</span></div>
-        <div><b>Tee</b><span>280 to 300 gsm cotton jersey</span><span>Boxy, dropped shoulder</span><span>Tonal chest wordmark, TNR. back neck</span></div>
-        <div><b>Hoodie</b><span>450 to 500 gsm loopback</span><span>Oversized, no drawcords</span><span>Tonal chest wordmark, year label</span></div>
-        <div><b>Crewneck</b><span>450 gsm loopback</span><span>Relaxed, ribbed hem</span><span>Tonal chest wordmark</span></div>
-        <div><b>Sweatpant</b><span>450 gsm loopback</span><span>Relaxed, elastic cuff</span><span>Tally on left thigh</span></div>
-        <div><b>Short</b><span>400 gsm loopback</span><span>Above knee, wide leg</span><span>Tally on left leg</span></div>
-        <div><b>Cap</b><span>Washed cotton twill</span><span>Six panel, unstructured</span><span>Tonal tally, front</span></div>
+        <div><span class="th">Piece</span><span class="th">Line</span><span class="th">Fabric</span><span class="th">Branding</span></div>
+        <div><b>Heavyweight tee</b><span>Base</span><span>280 to 300 gsm cotton</span><span>Tonal chest wordmark</span></div>
+        <div><b>Hoodie</b><span>Strada</span><span>450 to 500 gsm loopback</span><span>Time stamp back print, clock chest</span></div>
+        <div><b>Cap</b><span>Strada</span><span>Washed cotton twill</span><span>Clock, front</span></div>
+        <div><b>Training short</b><span>Sport</span><span>Recycled poly, 4-way stretch</span><span>Clock on left leg</span></div>
+        <div><b>Knit polo</b><span>Giorno</span><span>Fine gauge cotton</span><span>Label only</span></div>
+        <div><b>Camp-collar shirt</b><span>Sera</span><span>Fluid viscose or Tencel</span><span>Label only</span></div>
       </div>
     </div>
   </section>
@@ -218,8 +212,8 @@ footer p { margin: 18px 0 0; font-size: 11px; letter-spacing: .3em; text-transfo
   <section>
     <div class="wrap">
       <div class="intro">
-        <div><p class="label">Marks</p><h2>Five marks, all quiet.</h2></div>
-        <div class="copy"><p>One wide sans for everything. The tally is the only drawing in the system, and it's five lines.</p></div>
+        <div><p class="label">Marks</p><h2>Six marks, all quiet.</h2></div>
+        <div class="copy"><p>One wide sans for everything. The clock is the only drawing in the system. Branding gets quieter as the day goes on: bold on Strada, small on Sport, label only on Giorno and Sera.</p></div>
       </div>
       <div class="marks">
 {{SUITE}}
@@ -230,8 +224,8 @@ footer p { margin: 18px 0 0; font-size: 11px; letter-spacing: .3em; text-transfo
   <section>
     <div class="wrap">
       <div class="intro">
-        <div><p class="label">Colour</p><h2>Six neutrals. Nothing that dates.</h2></div>
-        <div class="copy"><p>The logo is always the garment colour, one tone darker, or one tone lighter on Slate and Black.</p></div>
+        <div><p class="label">Colour</p><h2>Six colours. Everything goes with everything.</h2></div>
+        <div class="copy"><p>The same six colours across all four lines, so a customer can mix a Sport short with a Strada hoodie and a Giorno polo and it always works. The logo is the garment colour, one shade darker, or one shade lighter on Olive, Navy and Black.</p></div>
       </div>
       <div class="swatches">
 {{SWATCHES}}
@@ -244,10 +238,10 @@ footer p { margin: 18px 0 0; font-size: 11px; letter-spacing: .3em; text-transfo
       <div class="intro">
         <div><p class="label">Before you order</p><h2>Do these first.</h2></div>
         <ol class="next">
-          <li>Get a class 25 trademark search done for TENURE in the countries you'll sell in. A web search found no clothing label using it (the nearest is Ten C, an Italian outerwear brand), but that isn't clearance.</li>
-          <li>Grab the handles the same day: @tenure, @tnr.studio, @tenure.studio, and the domain.</li>
-          <li>Make the story yours. If you have a real piece that's lasted, your dad's sweatshirt or your first good hoodie, photograph it and use it in the launch. A real one beats the line on this page.</li>
-          <li>Sample one tee and one hoodie, wash them three times, and check shrinkage and twist before committing to a run.</li>
+          <li>Get a class 25 trademark search done for NOVE. Earlier US filings for it in clothing were cancelled or abandoned, which is a good sign, but get it confirmed properly before you spend.</li>
+          <li>Grab the handles and domain the same day: @nove, @nove.n9, @novestudio, nove.studio.</li>
+          <li>Activewear is a different factory from cut-and-sew basics. Find a separate supplier for Sport and test stretch, squat-proofing and sweat-wicking before launch.</li>
+          <li>Sample everything, wash it three times, and check shrinkage before committing to a run.</li>
         </ol>
       </div>
     </div>
@@ -256,7 +250,7 @@ footer p { margin: 18px 0 0; font-size: 11px; letter-spacing: .3em; text-transfo
 
 <footer>
   <div class="wrap">
-    {{SWALLOW}}
-    <p>Tenure · Built to stay · Year 01</p>
+    {{FOOT}}
+    <p>Nove · 09:00 / 21:00</p>
   </div>
 </footer>

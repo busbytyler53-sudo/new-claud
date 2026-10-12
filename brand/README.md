@@ -1,6 +1,6 @@
 # Agosto
 
-Brand identity, third draft. Replaces the Sottovoce and Solano drafts.
+Brand identity, fourth draft: the clean "blanks" edition. Same name and story as the third draft, restyled.
 
 Agosto is Italian for August. The brand is built around a made-up twelve-room pensione on the
 Italian coast that only opens in August. "The hotel doesn't exist. The summer does."
@@ -10,13 +10,14 @@ Italian coast that only opens in August. "The hotel doesn't exist. The summer do
 - Emblem: the swallow (returns to the same nest every summer, like the guests)
 - Lines: Ospiti (core), Personale (staff uniform pieces), Souvenir (summer drops)
 
-`logos/` has every mark as outlined SVG in navy, ecru and black: wordmark, lockup, ago, swallow,
-keytag (Camera 12 room key), script.
+`logos/` has every mark as outlined SVG in washed black, latte and stone: wordmark, lockup
+(swallow + wordmark), ago, swallow, patch (rubber back-neck patch). All set in Archivo Expanded.
 
-`drops/` has the back prints for the three souvenir tees: Limoni, Palma, Rondini.
+`drops/` has tonal back prints for the three souvenir tees: Limoni, Palma, Rondini.
 
-`brand-sheet.html` is the full brand sheet. `source/` holds the generator scripts (`gen3.py`,
-`build3.py`; needs fonttools plus Bodoni Moda, Cormorant Garamond and Pinyon Script from Google Fonts in `source/fonts/`).
+`brand-sheet.html` is the clean lookbook. `story-sheet.html` is the earlier serif version with the full
+hotel story. `source/gen4.py` and `source/build4.py` regenerate everything (needs fonttools and
+Archivo from Google Fonts in `source/fonts/`).
 
-Colours: Notte #1C2B3F, Lino #EDE6D6, Bianco #F7F5EF, Sabbia #D8C9A8, Limone #EBC944,
-Albicocca #E39B5B, Cielo #8FB6CC, Foglia #4F7A4A.
+Neutrals: Latte #F2EEE6, Avena #DCD1BE, Pietra #B8B1A3, Salvia #A7AE98, Notte #1C2B3F, Carbone #2A2927.
+Logos print tonal: one shade darker than the garment, one shade lighter on Notte and Carbone.

@@ -1,0 +1,203 @@
+<title>Agosto Essentials</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..700&display=swap">
+<style>
+/* Layout: a lookbook with nothing in it but product. Cream ground, one wide sans, generous air, grey captions. Single fixed look, by choice: the brand never goes dark. */
+:root {
+  --ground: #F2EEE6;
+  --panel: #E8E3D9;
+  --ink: #2A2927;
+  --dim: #8A8478;
+  --rule: rgba(42, 41, 39, .14);
+  --f: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body { background: var(--ground); color: var(--ink); font-family: var(--f); font-size: 15px; line-height: 1.6; font-weight: 400; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-inline: clamp(16px, 4vw, 48px); }
+.logo { display: block; width: 100%; height: auto; }
+.dim { color: var(--dim); }
+.label { font-size: 11px; letter-spacing: .24em; text-transform: uppercase; font-weight: 500; color: var(--dim); margin: 0; }
+
+header { padding-block: clamp(72px, 13vw, 160px) clamp(56px, 9vw, 110px); text-align: center; }
+.hero-mark { max-width: 440px; margin: 0 auto; }
+header .sub { margin: 28px 0 0; font-size: 11px; letter-spacing: .32em; text-transform: uppercase; color: var(--dim); }
+
+section { padding-block: clamp(56px, 8vw, 104px); }
+.intro { display: grid; grid-template-columns: 1fr 1.4fr; gap: clamp(28px, 6vw, 96px); align-items: start; border-top: 1px solid var(--rule); padding-top: 28px; }
+.intro > * { min-width: 0; }
+h2 { font-stretch: 125%; font-weight: 500; font-size: clamp(22px, 2.8vw, 32px); line-height: 1.2; letter-spacing: .04em; text-transform: uppercase; margin: 10px 0 0; text-wrap: balance; }
+.copy p { margin: 0 0 1em; max-width: 58ch; font-size: 16px; }
+.copy p:last-child { margin-bottom: 0; }
+
+.blanks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 40px; }
+.blank { margin: 0; min-width: 0; }
+.ground { background: var(--panel); aspect-ratio: 1 / 1.08; max-width: 100%; display: grid; place-items: center; padding: 10%; }
+.mock { width: 100%; height: auto; display: block; }
+figcaption { display: flex; justify-content: space-between; gap: 12px; padding: 12px 2px 0; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; }
+
+.marks { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-top: 40px; }
+.mark { margin: 0; grid-column: span 2; min-width: 0; }
+.mark.m-wordmark, .mark.m-lockup { grid-column: span 3; }
+.mark-art { background: var(--panel); min-height: 200px; display: grid; place-items: center; padding: 36px; }
+.m-wordmark .logo, .m-lockup .logo { max-width: 340px; }
+.m-ago .logo { max-width: 130px; }
+.m-swallow .logo { max-width: 130px; }
+.m-patch .logo { max-width: 170px; }
+
+.spec { margin-top: 40px; border-top: 1px solid var(--ink); }
+.spec > div { display: grid; grid-template-columns: 1.1fr 1fr 1fr 1.3fr; gap: 16px; padding-block: 16px; border-bottom: 1px solid var(--rule); font-variant-numeric: tabular-nums; }
+.spec > div > * { min-width: 0; }
+.spec .th { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--dim); }
+.spec b { font-weight: 500; font-stretch: 112%; text-transform: uppercase; letter-spacing: .08em; }
+
+.swatches { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-top: 40px; }
+.sw { display: grid; gap: 4px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; min-width: 0; }
+.chip { border: 1px solid var(--rule); aspect-ratio: 3 / 4; max-width: 100%; display: grid; place-items: end start; padding: 12px; margin-bottom: 8px; }
+.chip span { font-stretch: 125%; font-size: 10px; letter-spacing: .3em; font-weight: 500; }
+
+ol.next { list-style: none; margin: 0; padding: 0; counter-reset: n; border-top: 1px solid var(--ink); }
+ol.next li { counter-increment: n; display: grid; grid-template-columns: 3.5em 1fr; padding-block: 16px; border-bottom: 1px solid var(--rule); max-width: 820px; }
+ol.next li::before { content: counter(n, decimal-leading-zero); color: var(--dim); font-variant-numeric: tabular-nums; }
+
+footer { padding-block: 72px; text-align: center; border-top: 1px solid var(--rule); }
+.foot-mark { max-width: 70px; margin: 0 auto; }
+footer p { margin: 18px 0 0; font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: var(--dim); }
+
+@media (max-width: 860px) {
+  .intro { grid-template-columns: 1fr; }
+  .blanks { grid-template-columns: 1fr 1fr; }
+  .marks { grid-template-columns: 1fr 1fr; }
+  .mark, .mark.m-wordmark, .mark.m-lockup { grid-column: span 1; }
+  .mark.m-wordmark, .mark.m-lockup { grid-column: span 2; }
+  .swatches { grid-template-columns: repeat(3, 1fr); }
+  .spec > div { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .blanks { grid-template-columns: 1fr; }
+  .marks { grid-template-columns: 1fr; }
+  .mark.m-wordmark, .mark.m-lockup { grid-column: span 1; }
+}
+</style>
+
+<header>
+  <div class="wrap">
+    {{HERO}}
+    <p class="sub">Ospiti · Blanks, made properly</p>
+  </div>
+</header>
+
+<main>
+  <section style="padding-top:0">
+    <div class="wrap intro">
+      <div>
+        <p class="label">The idea</p>
+        <h2>Fewer things. Better made. Every colour goes with every other.</h2>
+      </div>
+      <div class="copy">
+        <p>The look is blanks. Heavy cotton, boxy cuts, muted colours, and a logo so small and tonal you only see it up close. It's the stuff everyone wears and nobody gets bored of, which is why it sells season after season without markdowns.</p>
+        <p>Agosto still carries the story underneath: the Italian August, the swallow that comes back every summer. But the story is whispered now. It lives in the colour names, the AGO. under the back collar and the patch inside the hoodie. The front of the garment stays quiet.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="intro">
+        <div><p class="label">Ospiti · the core</p><h2>One tee, six colours.</h2></div>
+        <div class="copy"><p>Same pattern, same weight, six neutrals. Wordmark across the chest in a tone one shade darker than the cloth. Launch with these six and add one colour a season, never more.</p></div>
+      </div>
+      <div class="blanks">
+{{BLANKS}}
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="intro">
+        <div><p class="label">The details</p><h2>The story is on the inside.</h2></div>
+        <div class="copy"><p>No big graphics on the core range. The brand shows up where people who own it will notice: the rubber patch on the back neck of every fleece, AGO. printed under the collar, the swallow on the cap.</p></div>
+      </div>
+      <div class="blanks">
+{{DETAILS}}
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="intro">
+        <div><p class="label">The range</p><h2>What to make first.</h2></div>
+        <div class="copy"><p>Weight is where blanks brands win or lose. Go heavier than you think. People feel it in the shop before they look at the logo.</p></div>
+      </div>
+      <div class="spec">
+        <div><span class="th">Piece</span><span class="th">Weight</span><span class="th">Fit</span><span class="th">Branding</span></div>
+        <div><b>Tee</b><span>280 to 300 gsm cotton jersey</span><span>Boxy, dropped shoulder</span><span>Tonal chest wordmark, AGO. back neck</span></div>
+        <div><b>Hoodie</b><span>450 to 500 gsm loopback</span><span>Oversized, no drawcords</span><span>Tonal chest wordmark, rubber patch</span></div>
+        <div><b>Crewneck</b><span>450 gsm loopback</span><span>Relaxed, ribbed hem</span><span>Tonal chest wordmark</span></div>
+        <div><b>Sweatpant</b><span>450 gsm loopback</span><span>Relaxed, elastic cuff</span><span>Swallow on left thigh</span></div>
+        <div><b>Short</b><span>400 gsm loopback</span><span>Above knee, wide leg</span><span>Swallow on left leg</span></div>
+        <div><b>Cap</b><span>Washed cotton twill</span><span>Six panel, unstructured</span><span>Tonal swallow, front</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="intro">
+        <div><p class="label">Souvenir · summer only</p><h2>The tropical drops, done tonal.</h2></div>
+        <div class="copy"><p>The lemons, the palms and the swallows stay, printed one shade off the shirt colour so they read as texture from across a room and detail up close. Clean enough to sit next to the blanks, different enough to sell out. Small runs, one a month through summer, never restocked.</p></div>
+      </div>
+      <div class="blanks">
+{{DROPS}}
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="intro">
+        <div><p class="label">Marks</p><h2>Five marks, all quiet.</h2></div>
+        <div class="copy"><p>One wide sans for everything. No serifs, no script. The swallow is the only drawing in the system.</p></div>
+      </div>
+      <div class="marks">
+{{SUITE}}
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="intro">
+        <div><p class="label">Colour</p><h2>Six neutrals, Italian names.</h2></div>
+        <div class="copy"><p>Every colour is named in Italian, which is the cheapest way to keep the story alive on a product page. The logo is always the same colour as the garment, one tone darker, or one tone lighter on navy and black.</p></div>
+      </div>
+      <div class="swatches">
+{{SWATCHES}}
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="intro">
+        <div><p class="label">Before you order</p><h2>Do these first.</h2></div>
+        <ol class="next">
+          <li>Get a class 25 trademark search done for AGOSTO in the countries you'll sell in. A web search found nothing in clothing, but that's not clearance.</li>
+          <li>Order fabric swatches in all six colours and check them in daylight. Oat and stone look identical under shop lights at some mills.</li>
+          <li>Make one sample tee and one sample hoodie, wash them three times, and check shrinkage and twist before committing to a run.</li>
+          <li>Test the tonal print on one blank. If the contrast is too low on Latte, push the ink a shade darker; the files make that a one-line change.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    {{SWALLOW}}
+    <p>Agosto · Ospiti · MMXXVI</p>
+  </div>
+</footer>

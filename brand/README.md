@@ -1,17 +1,19 @@
-# Sottovoce Social Club
+# Solano
 
-Brand identity, first draft.
+Brand identity, second draft. Replaces the earlier Sottovoce draft.
 
-- Full name: Sottovoce Social Club
-- Trading name: Sottovoce
-- Short name: S.V.C.
-- Monogram: VS
-- Tagline: Said quietly.
+- Name: Solano
+- Short name: Sol.
+- Monogram: italic S in a ring (the sun)
 
-`logos/` holds every mark as outlined SVG (no fonts needed) in bottle green, ecru and black:
-wordmark, script, crest, monogram, svc.
+`logos/` has every mark as outlined SVG (no fonts needed) in bottle green, ecru and black:
+wordmark, lockup, sol, sun, script.
 
-`brand-sheet.html` is the full brand sheet. `source/` has the scripts that generate the logos
-(`gen.py`, needs fonttools plus Bodoni Moda, Cormorant Garamond and Pinyon Script from Google Fonts) and the sheet (`build.py`).
+`drops/` has the back prints for the three summer drop tees: Limoni (01, Amalfi), Palma (02, Riviera), Ibisco (03, Isole).
 
-Colours: Bottle Green #1F3A2E, Ecru #EDE6D6, Oxblood #6B1E24, Ink #141414.
+`brand-sheet.html` is the full brand sheet. `source/` holds the generator scripts
+(`gen2.py` for logos and prints, `build2.py` for the sheet; needs fonttools plus Bodoni Moda,
+Cormorant Garamond and Pinyon Script from Google Fonts in `source/fonts/`).
+
+Core colours: Bottle Green #1F3A2E, Ecru #EDE6D6. Drop colours: Limone #EBC944, Albicocca #E39B5B,
+Corallo #E0664F, Foglia #4F7A4A, Rosso #8E2433.

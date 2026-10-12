@@ -1,0 +1,193 @@
+<title>Solano Brand Sheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Hanken+Grotesk:wght@400;500;600&family=Pinyon+Script&display=swap">
+<style>
+{{CSS}}
+.hero-mark { max-width: 560px; }
+.cover .line { max-width: 26ch; }
+.inline-sol { max-width: 150px; }
+.inline-sun { max-width: 110px; }
+.art-wordmark, .art-script { max-width: 300px; }
+.art-sol { max-width: 120px; }
+.art-sun { max-width: 110px; }
+.art-lockup { max-width: 220px; }
+.drops { display: grid; gap: clamp(36px, 5vw, 56px); }
+.drop { display: grid; grid-template-columns: 3fr 2fr; gap: clamp(24px, 4vw, 48px); align-items: center; }
+.drop > * { min-width: 0; }
+.drop-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.drop:nth-child(even) { grid-template-columns: 2fr 3fr; }
+.drop:nth-child(even) .drop-pair { order: 2; }
+.drop-no { font-size: 12px; letter-spacing: .22em; text-transform: uppercase; font-weight: 600; color: var(--muted); margin: 0; }
+.drop h3 { font-family: "Pinyon Script", var(--f-serif); font-weight: 400; font-size: clamp(48px, 6vw, 68px); line-height: 1.1; margin: 4px 0 10px; }
+.drop-text p { margin: 0 0 12px; max-width: 44ch; color: var(--ink); }
+.drop-text .cap-s { color: var(--muted); }
+.cal { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--green); }
+.cal > div { padding: 18px 16px 18px 0; border-bottom: 1px solid var(--rule); display: grid; gap: 4px; }
+.cal b { font-family: var(--f-display); font-weight: 500; font-size: 20px; }
+.cal span { font-size: 14px; color: var(--muted); }
+@media (max-width: 860px) {
+  .drop, .drop:nth-child(even) { grid-template-columns: 1fr; }
+  .drop:nth-child(even) .drop-pair { order: 0; }
+  .cal { grid-template-columns: 1fr; }
+}
+</style>
+
+<header class="cover">
+  <div class="wrap">
+    <p class="eyebrow">Brand identity · second draft · October 2026</p>
+    {{HERO}}
+    <p class="line">The warm wind off the sea, the last week of August.</p>
+    <p class="pron">so · LAH · no &nbsp;/&nbsp; short for it: Sol.</p>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="wrap two">
+      <div class="head">
+        <p class="eyebrow">The name</p>
+        <h2>Six letters. Three syllables. Shortens to the sun.</h2>
+      </div>
+      <div>
+        <div class="lede">
+          <p>Solano is the old name for a hot summer wind that blows in off the Mediterranean. It sounds Italian, it's easy to say in any accent, and it looks good spaced out in capitals, which matters more than people think when it's stitched on a chest.</p>
+          <p>It also shortens on its own. Nobody has to be told to call it Sol. That's the trick Amici and Culture Club both pull: a name that feels like membership, and a nickname the regulars use. Sol is also Latin for sun, so the short name and the tropical drops tell the same story.</p>
+        </div>
+        <dl class="ledger">
+          <div><dt>Name</dt><dd><b>Solano</b></dd></div>
+          <div><dt>Short name</dt><dd><b>Sol.</b> &nbsp;with the full stop, always</dd></div>
+          <div><dt>Monogram</dt><dd><b>S</b> &nbsp;inside a ring, read as the sun</dd></div>
+          <div><dt>Line</dt><dd>Solano. Made for late summer.</dd></div>
+          <div><dt>Handles to grab</dt><dd>@solano · @solano.club · @sol.solano · solano.club</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">The short name</p>
+        <h2>Sol. for the drops, the S for everything small.</h2>
+      </div>
+      <div class="short">
+        <div>
+          {{SOL}}
+          <p>Bodoni italic with a full stop. The full stop is what makes it a name and not just the word for sun. It sits small on the front of every drop tee so the back print does the talking.</p>
+        </div>
+        <div>
+          {{SUN}}
+          <p>The italic S in a thin ring. It's the sun, and it's the seal on the box. Caps, buttons, zip pulls, the profile picture. Works down to about 10mm.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Logo suite</p>
+        <h2>Five marks, kept quiet.</h2>
+      </div>
+      <div class="suite">
+{{SUITE}}
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">The core range</p>
+        <h2>Plain on purpose.</h2>
+        <div class="lede"><p>This is most of what you sell, all year. Heavy cotton, good colours, a small logo and nothing else. The core sets the price point and the reputation. Get the fabric and fit right here and the drops sell themselves.</p></div>
+      </div>
+      <div class="mocks">
+{{CORE}}
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">The drops</p>
+        <h2>Three summer tees. Small run each, then gone.</h2>
+        <div class="lede"><p>The drops are where the brand gets to be loud, and only on the back. Each one is named after a place on the Italian coast and printed in limited numbers. Order 150 to 300 per design for the first season, and when one sells out, don't restock it. Scarcity is what makes the next drop sell.</p></div>
+      </div>
+      <div class="drops">
+{{DROPS}}
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Release calendar</p>
+        <h2>One drop a month, through the summer.</h2>
+      </div>
+      <div class="cal">
+        <div><b>May · Limoni</b><span>Launch drop, with the core range</span></div>
+        <div><b>June · Palma</b><span>Peak summer, biggest run</span></div>
+        <div><b>August · Ibisco</b><span>Last of the season, smallest run</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Colour</p>
+        <h2>Green and ecru all year. The fruit colours only in summer.</h2>
+      </div>
+      <div class="swatches">
+        <div class="sw"><div class="chip" style="background:#1F3A2E"></div><span class="name">Bottle Green</span><span class="meta">#1F3A2E · core</span></div>
+        <div class="sw"><div class="chip" style="background:#EDE6D6"></div><span class="name">Ecru</span><span class="meta">#EDE6D6 · core</span></div>
+        <div class="sw"><div class="chip" style="background:#EBC944"></div><span class="name">Limone</span><span class="meta">#EBC944 · drop 01</span></div>
+        <div class="sw"><div class="chip" style="background:#E39B5B"></div><span class="name">Albicocca</span><span class="meta">#E39B5B · drop 02</span></div>
+        <div class="sw"><div class="chip" style="background:#E0664F"></div><span class="name">Corallo</span><span class="meta">#E0664F · drop 03</span></div>
+        <div class="sw"><div class="chip" style="background:#4F7A4A"></div><span class="name">Foglia</span><span class="meta">#4F7A4A · drops</span></div>
+        <div class="sw"><div class="chip" style="background:#8E2433"></div><span class="name">Rosso</span><span class="meta">#8E2433 · drop 03</span></div>
+        <div class="sw"><div class="chip" style="background:#F7F5EF"></div><span class="name">Bianco</span><span class="meta">#F7F5EF · tee base</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Type</p>
+        <h2>One Didone, one Garamond, one hand.</h2>
+      </div>
+      <div class="type">
+        <div><span class="spec"><b>Bodoni Moda</b>Wordmark, Sol., headlines</span><span class="t-display">SOLANO</span></div>
+        <div><span class="spec"><b>Cormorant Garamond</b>Small caps lines, labels, drop numbers</span><span class="t-serif">Est. MMXXVI</span></div>
+        <div><span class="spec"><b>Pinyon Script</b>Chest mark and drop names only</span><span class="t-script">Palma</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Before you print anything</p>
+        <h2>The boring part that saves the brand.</h2>
+      </div>
+      <ol class="next">
+        <li>Run a class 25 (clothing) trademark search for SOLANO with the USPTO, UKIPO and EUIPO. A web search turned up no clothing label using it, but Solano is also a surname and a California county, so expect other businesses with the name. You want clothing specifically to be clear.</li>
+        <li>Grab the domain and handles the same day. If @solano is gone, @solano.club reads well and matches the membership feel.</li>
+        <li>Print one sample of each drop tee before ordering the run. Screen print the back graphics with 4 to 5 colours each, and check the thin palm leaflets hold up on the screen mesh.</li>
+        <li>Get a stitch-out of the script mark and the sun monogram at real size. Bodoni hairlines need thickening for embroidery under about 4cm.</li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    {{SUN}}
+    <p>Solano · Sol. · MMXXVI</p>
+  </div>
+</footer>

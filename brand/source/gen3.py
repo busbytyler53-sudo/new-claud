@@ -1,45 +1,60 @@
-"""Solano: logos and tropical drop graphics, all text outlined."""
+"""Agosto: logos, key tag emblem and souvenir drop prints, all text outlined."""
 import json, math, os, sys
-sys.argv = sys.argv[:1] + sys.argv[1:]
 OUT = sys.argv[1]
 from svlib import run, bounds, BOD, BODI, COR, PIN, BOD_SM
-
+from swallow import swallow_d
 os.makedirs(OUT, exist_ok=True)
 HERE = os.path.dirname(os.path.abspath(__file__))
 f2 = lambda v: f"{v:.1f}"
+SW = swallow_d()  # box: x -118..118, y -62..100
+
+def swallow_at(cx, cy, w, ang=0, fill=None):
+    s = w / 236
+    f = f' fill="{fill}"' if fill else ""
+    return f'<path transform="translate({cx:.1f} {cy:.1f}) rotate({ang}) scale({s:.4f}) translate(0 -19)" d="{SW}"{f}/>'
 
 logos = {}
 
 # Wordmark
-d, w = run(BOD, "SOLANO", 100, track=0.24)
-b = bounds(BOD, "SOLANO", 100, track=0.24); ch = -b[1]
-logos["wordmark"] = (w + 20, ch + 20, f'<path transform="translate(10 {ch + 10:.2f})" d="{d}"/>')
-
-# Lockup: wordmark + rule + EST line
+d, w = run(BOD, "AGOSTO", 100, track=0.24)
+b = bounds(BOD, "AGOSTO", 100, track=0.24); ch = -b[1]
 W = w + 20; mid = W / 2
-de, we = run(COR, "EST. MMXXVI", 22, mid, ch + 10 + 56, track=0.5, anchor="middle")
-gap = we / 2 + 22; ry = ch + 10 + 48
-body = (f'<path transform="translate(10 {ch + 10:.2f})" d="{d}"/><path d="{de}"/>'
+logos["wordmark"] = (W, ch + 20, f'<path transform="translate(10 {ch + 10:.2f})" d="{d}"/>')
+
+# Lockup: swallow, wordmark, rule + APERTO IN AGOSTO
+top = 132
+de, we = run(COR, "APERTO IN AGOSTO", 20, mid, top + ch + 56, track=0.5, anchor="middle")
+gap = we / 2 + 22; ry = top + ch + 49
+body = (swallow_at(mid, 50, 120) +
+        f'<path transform="translate(10 {top + ch:.2f})" d="{d}"/><path d="{de}"/>'
         f'<rect x="10" y="{ry:.2f}" width="{mid - gap - 10:.2f}" height="1.4"/>'
         f'<rect x="{mid + gap:.2f}" y="{ry:.2f}" width="{mid - gap - 10:.2f}" height="1.4"/>')
-logos["lockup"] = (W, ch + 10 + 70, body)
+logos["lockup"] = (W, top + ch + 72, body)
 
-# Sol. short mark
-ds, ws = run(BODI, "Sol.", 120)
-bs = bounds(BODI, "Sol.", 120)
-logos["sol"] = (bs[2] - bs[0] + 20, bs[3] - bs[1] + 20,
+# Ago. short mark
+ds, _ = run(BODI, "Ago.", 120)
+bs = bounds(BODI, "Ago.", 120)
+logos["ago"] = (bs[2] - bs[0] + 20, bs[3] - bs[1] + 20,
                 f'<path transform="translate({10 - bs[0]:.2f} {10 - bs[1]:.2f})" d="{ds}"/>')
 
-# Sun monogram: italic S inside a ring
-dS, _ = run(BODI, "S", 210)
-bS = bounds(BODI, "S", 210)
-body = (f'<circle cx="150" cy="150" r="138" fill="none" stroke="currentColor" stroke-width="5"/>'
-        f'<path transform="translate({150 - (bS[0] + bS[2]) / 2:.2f} {150 - (bS[1] + bS[3]) / 2:.2f})" d="{dS}"/>')
-logos["sun"] = (300, 300, body)
+# Swallow emblem
+logos["swallow"] = (260, 180, swallow_at(130, 89, 236))
+
+# Room key tag
+FOB = "M72 66C44 124 24 204 24 296C24 366 60 406 100 406C140 406 176 366 176 296C176 204 156 124 128 66"
+dc, _ = run(BOD_SM, "CAMERA", 14, 100, 236, track=0.5, anchor="middle")
+dn, _ = run(BOD, "12", 96, 100, 330, anchor="middle")
+da, _ = run(BOD_SM, "AGOSTO", 14, 100, 360, track=0.3, anchor="middle")
+body = (f'<g fill="none" stroke="currentColor"><path d="{FOB}" stroke-width="5"/>'
+        f'<path d="M72 66A40 40 0 1 1 128 66" stroke-width="5"/>'
+        f'<circle cx="100" cy="40" r="11" stroke-width="3"/>'
+        f'<path d="M80 84C56 136 38 210 38 296C38 356 68 392 100 392C132 392 162 356 162 296C162 210 144 136 120 84" stroke-width="1.4"/></g>'
+        + swallow_at(100, 168, 64) + f'<path d="{dc}"/><path d="{dn}"/><path d="{da}"/>')
+logos["keytag"] = (200, 420, body)
 
 # Script chest mark
-dP, _ = run(PIN, "Solano", 150)
-bP = bounds(PIN, "Solano", 150)
+dP, _ = run(PIN, "Agosto", 150)
+bP = bounds(PIN, "Agosto", 150)
 logos["script"] = (bP[2] - bP[0] + 40, bP[3] - bP[1] + 40,
                    f'<path transform="translate({20 - bP[0]:.2f} {20 - bP[1]:.2f})" d="{dP}"/>')
 
@@ -106,7 +121,7 @@ def g_palma():
     sea = "".join(f'<rect x="{82 + i * 6}" y="{262 + i * 14}" width="{236 - i * 12}" height="{5 - i * .6:.1f}" fill="var(--bg)"/>' for i in range(5))
     trees = f'<g fill="var(--ink)" color="var(--ink)">{palm(160, 340, 200, 36)}{palm(268, 340, 140, -14, .75)}</g>'
     ground = '<path d="M60 340Q200 326 340 340L340 346Q200 334 60 346Z" fill="var(--ink)"/>'
-    return f'{sun}{sea}{trees}{ground}<g fill="var(--ink)">{caption("Palma", "DROP 02 · RIVIERA", 392)}</g>'
+    return f'{sun}{sea}{trees}{ground}<g fill="var(--ink)">{caption("Palma", "SOUVENIR 02 · LA SPIAGGIA", 392)}</g>'
 
 LEMON = "M-46 0C-40 -6 -36 -28 0 -28C36 -28 40 -6 46 0C40 6 36 28 0 28C-36 28 -40 6 -46 0Z"
 def leaf(x, y, ang, L, wd):
@@ -130,7 +145,7 @@ def g_limoni():
         (270, 108, -80, 70, 18), (300, 128, 20, 70, 18), (160, 92, 160, 60, 16), (250, 100, 200, 60, 16)))
     stems = ('<path d="M150 96L140 170M215 88L222 205M285 118L300 180" fill="none" stroke="var(--ink)" stroke-width="3"/>')
     fruit = lemon(140, 200, 80, 1.05) + lemon(224, 240, 96, 1.2) + lemon(300, 208, 70, .95)
-    return f'{stems}{branch}{leaves}{fruit}<g fill="var(--ink)">{caption("Limoni", "DROP 01 · AMALFI", 392)}</g>'
+    return f'{stems}{branch}{leaves}{fruit}<g fill="var(--ink)">{caption("Limoni", "SOUVENIR 01 · IL GIARDINO", 392)}</g>'
 
 PETAL = "M0 0C-46 -18 -60 -92 -18 -112C-6 -118 6 -116 14 -112C58 -94 46 -20 0 0Z"
 def g_ibisco():
@@ -142,30 +157,44 @@ def g_ibisco():
               "".join(f'<circle cx="{252 + dx}" cy="{120 + dy}" r="5.5" fill="var(--a2)" stroke="var(--ink)" stroke-width="1.5"/>' for dx, dy in ((0, -6), (-9, 2), (9, 2), (-4, 10), (6, 11))))
     return f'{lv}{petals}{veins}{eye}{stamen}<g fill="var(--ink)">{caption("Ibisco", "DROP 03 · ISOLE", 392)}</g>'
 
-graphics = {"palma": g_palma(), "limoni": g_limoni(), "ibisco": g_ibisco()}
-COLORWAYS = {
-    "palma":  {"--bg": "#EDE6D6", "--ink": "#1F3A2E", "--a1": "#E39B5B", "--a2": "#1F3A2E", "--a3": "#1F3A2E"},
-    "limoni": {"--bg": "#F5F1E6", "--ink": "#1F3A2E", "--a1": "#EBC944", "--a2": "#4F7A4A", "--a3": "#1F3A2E"},
-    "ibisco": {"--bg": "#EDE6D6", "--ink": "#1F3A2E", "--a1": "#E0664F", "--a2": "#4F7A4A", "--a3": "#8E2433"},
-}
 
-json.dump({"logos": {k: {"w": v[0], "h": v[1], "body": v[2]} for k, v in logos.items()},
-           "graphics": graphics, "colorways": COLORWAYS},
-          open(os.path.join(HERE, "solano.json"), "w"))
+def caption(title, sub, y):
+    d1, _ = run(BOD_SM, "AGOSTO", 24, 200, y, track=0.42, anchor="middle")
+    d2, _ = run(PIN, title, 44, 200, y + 54, anchor="middle")
+    d3, _ = run(COR, sub, 15, 200, y + 84, track=0.4, anchor="middle")
+    return f'<path d="{d1}"/><path d="{d2}"/><path d="{d3}"/>'
+
+def g_rondini():
+    sky = '<circle cx="200" cy="215" r="122" fill="var(--a1)"/>'
+    sea = "".join(f'<rect x="{80 + i * 7}" y="{272 + i * 14}" width="{240 - i * 14}" height="{5 - i * .6:.1f}" fill="var(--bg)"/>' for i in range(5))
+    birds = (swallow_at(170, 150, 170, -12, "var(--ink)") + swallow_at(268, 210, 96, 14, "var(--ink)") +
+             swallow_at(112, 250, 70, -24, "var(--ink)"))
+    return f'{sky}{sea}{birds}<g fill="var(--ink)">{caption("Rondini", "SOUVENIR 03 · RITORNO", 392)}</g>'
+
+graphics = {"limoni": g_limoni(), "palma": g_palma(), "rondini": g_rondini()}
+NAVY = "#1C2B3F"
+COLORWAYS = {
+    "limoni":  {"--bg": "#F7F5EF", "--ink": NAVY, "--a1": "#EBC944", "--a2": "#4F7A4A", "--a3": NAVY},
+    "palma":   {"--bg": "#EDE6D6", "--ink": NAVY, "--a1": "#E39B5B", "--a2": NAVY, "--a3": NAVY},
+    "rondini": {"--bg": "#EDE6D6", "--ink": NAVY, "--a1": "#8FB6CC", "--a2": NAVY, "--a3": NAVY},
+}
 
 def colorize(body, cw):
     for k, v in cw.items():
         body = body.replace(f"var({k})", v)
     return body
 
-def svg(w, h, body, fill, style=""):
-    return f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w:g} {h:g}" fill="{fill}" color="{fill}"{style}>{body}</svg>\n'
+json.dump({"logos": {k: {"w": v[0], "h": v[1], "body": v[2]} for k, v in logos.items()},
+           "graphics": graphics, "colorways": COLORWAYS}, open(os.path.join(HERE, "agosto.json"), "w"))
+
+def svg(w, h, body, fill):
+    return f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w:g} {h:g}" fill="{fill}" color="{fill}">{body}</svg>\n'
 
 os.makedirs(os.path.join(OUT, "logos"), exist_ok=True); os.makedirs(os.path.join(OUT, "drops"), exist_ok=True)
 for name, (w, h, body) in logos.items():
-    for suf, fill in (("green", "#1F3A2E"), ("ecru", "#EDE6D6"), ("black", "#141414")):
-        open(os.path.join(OUT, "logos", f"solano-{name}-{suf}.svg"), "w").write(svg(w, h, body, fill))
+    for suf, fill in (("navy", NAVY), ("ecru", "#EDE6D6"), ("black", "#141414")):
+        open(os.path.join(OUT, "logos", f"agosto-{name}-{suf}.svg"), "w").write(svg(w, h, body, fill))
 for name, body in graphics.items():
     cw = COLORWAYS[name]
-    open(os.path.join(OUT, "drops", f"solano-{name}-print.svg"), "w").write(svg(400, 490, colorize(body, cw), cw["--ink"]))
+    open(os.path.join(OUT, "drops", f"agosto-{name}-print.svg"), "w").write(svg(400, 490, colorize(body, cw), cw["--ink"]))
 print("ok", {k: (round(v[0]), round(v[1])) for k, v in logos.items()})

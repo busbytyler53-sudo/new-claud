@@ -1,0 +1,244 @@
+<title>Sottovoce Social Club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Hanken+Grotesk:wght@400;500;600&display=swap">
+<style>
+/* Layout: a members' club ledger. Green cover band, then ecru pages ruled like a guest book. Single fixed look, by choice: the brand is ecru and bottle green in every context. */
+:root {
+  --green: #1F3A2E;
+  --green-2: #2A4A3B;
+  --ecru: #EDE6D6;
+  --paper: #F3EEE3;
+  --oxblood: #6B1E24;
+  --ink: #141414;
+  --rule: rgba(31, 58, 46, .22);
+  --muted: #55665C;
+  --f-display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --f-serif: "Cormorant Garamond", "Garamond", Georgia, serif;
+  --f-body: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body { background: var(--paper); color: var(--green); font-family: var(--f-body); font-size: 16px; line-height: 1.6; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-inline: clamp(16px, 4vw, 48px); }
+.logo { display: block; width: 100%; height: auto; }
+
+.cover { background: var(--green); color: var(--ecru); padding-block: clamp(48px, 9vw, 112px) clamp(40px, 6vw, 72px); }
+.cover .eyebrow { color: rgba(237, 230, 214, .7); }
+.hero-mark { max-width: 760px; margin: 28px auto 0; }
+.cover .line { font-family: var(--f-serif); font-style: italic; font-size: clamp(22px, 3vw, 30px); line-height: 1.3; text-align: center; max-width: 30ch; margin: clamp(36px, 5vw, 56px) auto 0; text-wrap: balance; }
+.cover .pron { text-align: center; margin-top: 18px; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: rgba(237, 230, 214, .66); }
+
+.eyebrow { font-size: 12px; letter-spacing: .22em; text-transform: uppercase; font-weight: 600; color: var(--muted); text-align: center; margin: 0; }
+section { padding-block: clamp(56px, 8vw, 96px); border-top: 1px solid var(--rule); }
+h2 { font-family: var(--f-display); font-weight: 500; font-size: clamp(30px, 4.4vw, 46px); line-height: 1.1; margin: 10px 0 0; letter-spacing: -.01em; text-wrap: balance; }
+.lede { max-width: 62ch; color: var(--ink); font-size: 17px; }
+.lede p { margin: 0 0 1em; }
+.head { display: grid; gap: 18px; margin-bottom: clamp(32px, 5vw, 52px); }
+.head .eyebrow { text-align: left; }
+
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: start; }
+.two > * { min-width: 0; }
+.ledger { border-top: 1px solid var(--green); }
+.ledger div { display: grid; grid-template-columns: 9.5em 1fr; gap: 16px; padding-block: 14px; border-bottom: 1px solid var(--rule); }
+.ledger dt { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; font-weight: 600; color: var(--muted); padding-top: 3px; }
+.ledger dd { margin: 0; color: var(--ink); }
+.ledger dd b { font-family: var(--f-display); font-weight: 500; font-size: 20px; color: var(--green); }
+
+.short { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--rule); border: 1px solid var(--rule); }
+.short > div { background: var(--paper); padding: clamp(24px, 4vw, 40px); display: grid; gap: 20px; align-content: start; }
+.short > div:last-child { background: var(--green); color: var(--ecru); }
+.short > div:last-child p { color: rgba(237, 230, 214, .82); }
+.inline-svc { max-width: 210px; }
+.inline-mono { max-width: 120px; }
+.short p { margin: 0; color: var(--ink); max-width: 46ch; }
+
+.suite { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+.tile { margin: 0; background: var(--ecru); display: grid; grid-template-rows: auto auto; grid-column: span 2; }
+.tile.wide { grid-column: span 3; }
+.tile.dark { background: var(--green); color: var(--ecru); }
+.tile-art { display: grid; place-items: center; padding: clamp(28px, 5vw, 52px) clamp(20px, 4vw, 40px); min-height: 220px; }
+.art-wordmark, .art-script { max-width: 340px; }
+.art-crest { max-width: 200px; }
+.art-monogram { max-width: 120px; }
+.art-svc { max-width: 170px; }
+figcaption { display: grid; gap: 4px; padding: 16px 20px 20px; border-top: 1px solid var(--rule); }
+.tile.dark figcaption { border-top-color: rgba(237, 230, 214, .2); }
+.cap-t { font-family: var(--f-serif); font-weight: 600; font-size: 20px; line-height: 1.2; }
+.cap-s { font-size: 14px; color: var(--muted); line-height: 1.5; }
+.tile.dark .cap-s { color: rgba(237, 230, 214, .72); }
+
+.mocks { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.mock-card { margin: 0; min-width: 0; }
+.mock-ground { background: #E3DCCB; aspect-ratio: 1 / 1.05; max-width: 100%; display: grid; place-items: center; padding: 8%; }
+.mock { width: 100%; height: auto; display: block; }
+.mock-card figcaption { border-top: 0; padding: 14px 2px 0; }
+
+.swatches { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.sw { display: grid; gap: 10px; }
+.chip { aspect-ratio: 4 / 3; max-width: 100%; border: 1px solid var(--rule); }
+.sw .name { font-family: var(--f-serif); font-weight: 600; font-size: 20px; line-height: 1.1; }
+.sw .meta { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+.type { display: grid; gap: 0; border-top: 1px solid var(--green); }
+.type > div { display: grid; grid-template-columns: 1fr 2fr; gap: 24px; padding-block: 22px; border-bottom: 1px solid var(--rule); align-items: baseline; }
+.type > div > * { min-width: 0; }
+.type .spec { font-size: 13px; color: var(--muted); }
+.type .spec b { display: block; color: var(--green); font-size: 15px; font-weight: 600; }
+.t-display { font-family: var(--f-display); font-size: clamp(28px, 4vw, 40px); letter-spacing: .14em; }
+.t-serif { font-family: var(--f-serif); font-size: clamp(22px, 3vw, 28px); letter-spacing: .3em; text-transform: uppercase; }
+.t-script { font-family: "Pinyon Script", var(--f-serif); font-size: clamp(34px, 5vw, 48px); line-height: 1; }
+
+ol.next { margin: 0; padding: 0; list-style: none; counter-reset: n; display: grid; gap: 0; border-top: 1px solid var(--green); max-width: 760px; }
+ol.next li { counter-increment: n; display: grid; grid-template-columns: 3em 1fr; padding-block: 16px; border-bottom: 1px solid var(--rule); color: var(--ink); }
+ol.next li::before { content: counter(n, upper-roman) "."; font-family: var(--f-display); color: var(--oxblood); }
+
+footer { background: var(--green); color: var(--ecru); padding-block: 48px; }
+footer .logo { max-width: 120px; margin: 0 auto; }
+footer p { text-align: center; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: rgba(237, 230, 214, .6); margin: 18px 0 0; }
+
+@media (max-width: 860px) {
+  .two, .short { grid-template-columns: 1fr; }
+  .suite { grid-template-columns: 1fr 1fr; }
+  .tile, .tile.wide { grid-column: span 1; }
+  .tile.wide { grid-column: span 2; }
+  .mocks, .swatches { grid-template-columns: 1fr 1fr; }
+  .type > div { grid-template-columns: 1fr; gap: 6px; }
+}
+@media (max-width: 480px) {
+  .suite, .mocks { grid-template-columns: 1fr; }
+  .tile.wide { grid-column: span 1; }
+  .ledger div { grid-template-columns: 1fr; gap: 2px; }
+}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap">
+
+<header class="cover">
+  <div class="wrap">
+    <p class="eyebrow">Brand identity · first draft · October 2026</p>
+    {{HERO}}
+    <p class="line">The loudest person in the room is never the one who needs to be.</p>
+    <p class="pron">sot · toh · VOH · chay &nbsp;/&nbsp; Italian: "in a low voice"</p>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="wrap two">
+      <div class="head">
+        <p class="eyebrow">The name</p>
+        <h2>Sottovoce. Said quietly, worn loudly.</h2>
+      </div>
+      <div>
+        <div class="lede">
+          <p>Amici means friends. The Culture Club sells belonging. Both work because the name is a feeling you buy into, and the logo is the membership card. Sottovoce plays the same game with a sharper hook: it's quiet luxury in one word, at a moment when quiet luxury is the whole market.</p>
+          <p>It's Italian, so it sits next to Amici and C.P. Company on the rail without feeling like a copy. It's also a real music term (the marking that tells a player to drop to a hush), which gives you years of campaign material: vinyl, late-night bars, the Riviera in October.</p>
+        </div>
+        <dl class="ledger">
+          <div><dt>Full name</dt><dd><b>Sottovoce Social Club</b></dd></div>
+          <div><dt>Trading name</dt><dd><b>Sottovoce</b></dd></div>
+          <div><dt>Short name</dt><dd><b>S.V.C.</b> &nbsp;said "S-V-C"</dd></div>
+          <div><dt>Monogram</dt><dd><b>VS</b> &nbsp;the V of voce cut through by the S of sotto</dd></div>
+          <div><dt>Tagline</dt><dd>Said quietly.</dd></div>
+          <div><dt>Handles to grab</dt><dd>@sottovoce.club · @svc.club · sottovoceclub.com</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">The short name</p>
+        <h2>Three letters for the regulars. Two for the cap.</h2>
+      </div>
+      <div class="short">
+        <div>
+          {{SVC}}
+          <p>S.V.C. is what people will actually call it, the same way Culture Club becomes TCC. It goes where the full name won't fit: a hoodie spine, a sleeve hit, a sub-line like "S.V.C. Sport". Dots stay in. They make it read as a club, not a logistics company.</p>
+        </div>
+        <div>
+          {{MONO}}
+          <p>The VS monogram is the icon. A Bodoni V with an italic S running through it, with a hairline gap where they cross so it still reads as two letters when embroidered small. This is the one that goes on caps, buttons and your profile picture.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Logo suite</p>
+        <h2>Five marks, each with a job.</h2>
+      </div>
+      <div class="suite">
+{{SUITE}}
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">On product</p>
+        <h2>How it looks on the rail.</h2>
+        <div class="lede"><p>Rough placement mockups, so you can judge scale. The script mark stays small on the chest, around 9cm wide. Small logos read as expensive; big ones read as merch.</p></div>
+      </div>
+      <div class="mocks">
+{{MOCKS}}
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Colour</p>
+        <h2>Bottle green and ecru, with oxblood for the drops.</h2>
+        <div class="lede"><p>Hex values are for screens. Get your manufacturer to match fabric and thread to physical Pantone chips, because green shifts a lot between cotton and fleece.</p></div>
+      </div>
+      <div class="swatches">
+        <div class="sw"><div class="chip" style="background:var(--green)"></div><span class="name">Bottle Green</span><span class="meta">#1F3A2E</span></div>
+        <div class="sw"><div class="chip" style="background:var(--ecru)"></div><span class="name">Ecru</span><span class="meta">#EDE6D6</span></div>
+        <div class="sw"><div class="chip" style="background:var(--oxblood)"></div><span class="name">Oxblood</span><span class="meta">#6B1E24</span></div>
+        <div class="sw"><div class="chip" style="background:var(--ink)"></div><span class="name">Ink</span><span class="meta">#141414</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Type</p>
+        <h2>One Didone, one Garamond, one hand.</h2>
+      </div>
+      <div class="type">
+        <div><span class="spec"><b>Bodoni Moda</b>Wordmark, headlines, prices</span><span class="t-display">SOTTOVOCE</span></div>
+        <div><span class="spec"><b>Cormorant Garamond</b>Sub-lines, crest ring, labels</span><span class="t-serif">Social Club</span></div>
+        <div><span class="spec"><b>Pinyon Script</b>Chest mark only. Never for body copy</span><span class="t-script">Sottovoce</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Before you print anything</p>
+        <h2>The boring part that saves the brand.</h2>
+      </div>
+      <ol class="next">
+        <li>Run a trademark search for SOTTOVOCE in class 25 (clothing) with the USPTO, UKIPO and EUIPO. A quick web check found no clothing label with this name, but that is not legal clearance. A perfume called Sotto Voce exists in class 3, which shouldn't block clothing.</li>
+        <li>Buy the domain and the handles the same day you decide. They go fast once a name is posted anywhere.</li>
+        <li>Send the SVG files to a digitiser and get a stitch-out of the script mark and monogram at real size before ordering stock. Hairlines in Bodoni need thickening for embroidery under about 4cm.</li>
+        <li>Pay a designer for a day to hand-refine the monogram crossing and the script's S. These files are a strong starting point; a final mark always gets one human pass.</li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    {{MONO}}
+    <p>Sottovoce Social Club · MMXXVI</p>
+  </div>
+</footer>
